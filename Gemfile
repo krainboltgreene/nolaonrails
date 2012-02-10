@@ -6,9 +6,13 @@ gem 'bson_ext', '~> 1'
 gem 'sorcery', '~> 0.7'
 gem 'draper', '~> 0.9'
 gem 'thin', '~> 1'
-gem 'bcrypt-ruby', '~> 3'
+gem 'bcrypt-ruby', '~> 3', require: 'bcrypt'
 gem 'jquery-rails', '~> 2'
 gem 'dalli', '~> 1'
+
+group :production do
+  gem 'newrelic_rpm', '~> 3'
+end
 
 group :development do
   gem 'heroku', '~> 2'
