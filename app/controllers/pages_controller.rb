@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter -> { @footer = true }
+
   def splash
   end
 

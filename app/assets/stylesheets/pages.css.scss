@@ -1,3 +1,23 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.pages#splash {
+  background: image_url('redtrolly.jpg') no-repeat center center fixed;
+  background-size: cover;
+  article header h1.title {
+    text-align: center;
+    &#nola { font-size: 8.5em; }
+    &#on { font-size: 6em; }
+    &#rails { font-size: 10.75em; font-family: "Vast Shadow", serif; }
+  }
+
+  article section.pitch section {
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    header, p {
+      padding: 0px 1em;
+    }
+  }
+}

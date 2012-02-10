@@ -8,6 +8,8 @@ NOR::Application.routes.draw do
   get 'support'  => 'pages#support',  as: :support
   get 'sponsors' => 'pages#sponsors', as: :sponsors
 
+
+  root to: 'pages#splash'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
