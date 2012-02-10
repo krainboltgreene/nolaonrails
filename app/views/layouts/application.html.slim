@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    = render partial: 'meta'
+    = stylesheet_link_tag  'application', media: 'all'
+    = csrf_meta_tags
+  body class=controller.controller_name id=controller.action_name
+    - if view_has_header?
+      = render partial: 'header'
+    article.container
+      == yield
+    - if view_has_footer?
+      = render partial: 'footer'
+  = render partial: 'analytics'
+  = javascript_include_tag 'application'
