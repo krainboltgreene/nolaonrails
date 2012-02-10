@@ -1,17 +1,12 @@
 NOR::Application.routes.draw do
-  get "pages/splash"
 
-  get "pages/about"
-
-  get "pages/policy"
-
-  get "pages/terms"
-
-  get "pages/pricing"
-
-  get "pages/support"
-
-  get "pages/sponsors"
+  get 'splash'   => 'pages#splash',   as: :splash
+  get 'about'    => 'pages#about',    as: :about
+  get 'policy'   => 'pages#policy',   as: :policy
+  get 'terms'    => 'pages#terms',    as: :terms
+  get 'pricing'  => 'pages#pricing',  as: :pricing
+  get 'support'  => 'pages#support',  as: :support
+  get 'sponsors' => 'pages#sponsors', as: :sponsors
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
