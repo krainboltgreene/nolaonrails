@@ -7,6 +7,7 @@ gem 'sorcery', '~> 0.7'
 gem 'draper', '~> 0.9'
 gem 'thin', '~> 1'
 gem 'bcrypt-ruby', '~> 3', require: 'bcrypt'
+gem 'slim-rails', '~> 1'
 gem 'jquery-rails', '~> 2'
 gem 'dalli', '~> 1'
 
@@ -41,7 +42,6 @@ end
 
 # Gems only for assets, not required in production environments by default.
 group :assets do
-  gem 'slim-rails', '~> 1'
   gem 'sass-rails', '~> 3'
   gem 'coffee-rails', '~> 3'
   gem 'uglifier', '~> 1'
