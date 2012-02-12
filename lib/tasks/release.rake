@@ -1,13 +1,5 @@
 require 'highline/import'
 
-# rake release:drop
-# rake release:new
-# rake release:assets
-# rake release:add         => git add . && git commit -m "Adding the compiled assets."
-# rake release:push:heroku => git push heroku release/1.5.0:master -f
-# rake release:push:github => git push origin release/1.5.0
-# rake release:finalize    => git checkout develop
-
 namespace :release do
   task :new => [:drop, :setup, :assets, :add, "push:all", :finalize]
   desc "Delete the old release branch"
@@ -39,18 +31,20 @@ namespace :release do
 
     desc "Push the repository to Heroku"
     task :heroku do
-      say "Pushing to "
+      say "Pushing to heroku"
       `git push heroku #{`git branch | grep release`.strip!.split(' ').last}:master -f`
     end
 
     desc "Push the repository to Github"
     task :github do
+      say "Pushing to github"
       `git push origin #{`git branch | grep release`.strip!.split(' ').last}`
     end
   end
 
   desc "Finalize the release run"
   task :finalize do
+    say "Switching back to develop branch"
     `git checkout develop`
   end
 end
