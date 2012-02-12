@@ -21,6 +21,7 @@ group :development do
   gem 'guard-spork', '~> 0.5'
   gem 'rails_best_practices', '~> 1'
   gem 'awesome_print', '~> 1'
+  gem 'highline', '~> 1.6'
 end
 
 group :test do

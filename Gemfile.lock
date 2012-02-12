@@ -88,6 +88,7 @@ GEM
       rest-client (~> 1.6.1)
       rubyzip
       term-ansicolor (~> 1.0.5)
+    highline (1.6.11)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.1)
@@ -245,6 +246,7 @@ DEPENDENCIES
   guard-rspec (~> 0.6)
   guard-spork (~> 0.5)
   heroku (~> 2)
+  highline (~> 1.6)
   jquery-rails (~> 2)
   mongoid (~> 2)
   mongoid-rspec (~> 1)
