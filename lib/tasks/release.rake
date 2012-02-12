@@ -1,6 +1,15 @@
 require 'highline/import'
 
+# rake release:drop
+# rake release:new
+# rake assets:precompile
+# rake release:add
+# rake release:push:heroku
+# rake release:push:github
+# rake release:finalize
+
 namespace :release do
+  task :default => [:drop, :new, "assets:precompile", :add, :push, :finalize]
   desc "Delete the old release branch"
   task :drop do
     `git branch -D #{`git branch | grep release`}`
