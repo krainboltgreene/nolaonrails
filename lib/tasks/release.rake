@@ -15,7 +15,11 @@ namespace :release do
   namespace :generate do
     desc "Generate a new secret token"
     task :token do
-      `rake secret`
+      open 'config/initializers/secret_token.rb', 'w' do |file|
+        new_secret = `rake secret`
+        secret_file = File.read file.path
+        secret_file.sub
+      end
     end
 
     desc "Generate the configurations files"
