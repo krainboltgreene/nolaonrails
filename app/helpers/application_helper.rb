@@ -1,14 +1,9 @@
 module ApplicationHelper
   APPLICATION = {
     name: "NOLA ON RAILS",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    keywords: %w[],
-    authors: %w[]
+    description: %q[NOLA on Rails (shortned to NOR) is a local (to New Orleans) class for learning Ruby on Rails.],
+    keywords: %w[new orleans rails lousiana ruby class learning local student study career],
+    authors: ["Kurtis Rainbolt-Greene (teacher@nolaonrails.com"]
   }
 
   def view_title(title = nil)
