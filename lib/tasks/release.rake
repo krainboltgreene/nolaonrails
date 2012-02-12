@@ -9,35 +9,44 @@ require 'highline/import'
 # rake release:finalize    => git checkout develop
 
 namespace :release do
-  task :default => [:drop, :new, :assets, :add, :push, :finalize]
+  task :new => [:drop, :setup, :assets, :add, "push:all", :finalize]
   desc "Delete the old release branch"
   task :drop do
     `git branch -D #{`git branch | grep release`}`
   end
 
   desc "Create a new release branch"
-  task :new do
+  task :setup do
     version = ask "What version do you want to release? "
     `git flow release start #{version}`
   end
 
-  namespace :generate do
-    desc "Generate a new secret token"
-    task :token do
-      open 'config/initializers/secret_token.rb', 'w' do |file|
-        new_secret = `rake secret`
-        secret_file = File.read file.path
-        secret_file.sub
-      end
+  desc "Generate the assets"
+  task :assets do
+    Rake::Task["assets:precompile"].invoke
+  end
+
+  desc "Add the newly generated code to the release branch"
+  task :add do
+    `git add . && git commit -m "Adding the compiled assets."`
+  end
+
+  namespace :push do
+    task :all => [:heroku, :github]
+
+    desc "Push the repository to Heroku"
+    task :heroku do
+      `git push heroku #{`git branch | grep release`.strip!}:master -f`
     end
 
-    desc "Generate the configurations files"
-    task :configurations do
-      files = Dir["*/*.example"]
-      files.each { |f| `cp #{f} #{f.sub('.example', '')}` }
+    desc "Push the repository to Github"
+    task :github do
+      `git push origin #{`git branch | grep release`.strip!}`
     end
+  end
 
-    desc "Generate the assets"
-    task :assets => "precompile:assets"
+  desc "Finalize the release run"
+  task :finalize do
+    `git checkout develop`
   end
 end
