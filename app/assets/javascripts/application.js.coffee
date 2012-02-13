@@ -23,3 +23,5 @@ $('input.error').each ->
   $(this).parent().parent().addClass 'error'
 
 $('[data-title][data-content]').popover { title: 'data-title', content: 'data-content' }
+
+$('.alert').alert()
