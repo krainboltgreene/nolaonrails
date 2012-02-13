@@ -8,6 +8,8 @@ html
   body class=controller.controller_name id=controller.action_name
     - if view_has_header?
       = render partial: 'header'
+    - if notice.present?
+      = render partial: 'notifications'
     article.container
       == yield
     - if view_has_footer?

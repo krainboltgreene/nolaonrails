@@ -1,5 +1,8 @@
 NOR::Application.routes.draw do
 
+  resources :accounts
+
+  get 'signup'   => 'accounts#new'
   get 'splash'   => 'pages#splash',   as: :splash
   get 'about'    => 'pages#about',    as: :about
   get 'policy'   => 'pages#policy',   as: :policy
