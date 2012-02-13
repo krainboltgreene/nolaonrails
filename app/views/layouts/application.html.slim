@@ -1,7 +1,8 @@
 doctype html
 html
   head
-    = render partial: 'meta'
+    = cache do
+      = render partial: 'meta'
     = stylesheet_link_tag  'application', media: 'all'
     link href='http://fonts.googleapis.com/css?family=Vast+Shadow' rel='stylesheet' type='text/css'
     = csrf_meta_tags
@@ -14,5 +15,6 @@ html
       == yield
     - if view_has_footer?
       = render partial: 'footer'
-  = render partial: 'analytics'
+  = cache do
+    = render partial: 'analytics'
   = javascript_include_tag 'application'
