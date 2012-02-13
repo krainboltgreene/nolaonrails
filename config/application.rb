@@ -61,5 +61,13 @@ module NOR
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      if html_tag.include?('input') || html_tag.include?('textarea')
+        html_tag.sub(/class="/, 'class="error ').html_safe
+      else
+        html_tag
+      end
+    end
   end
 end

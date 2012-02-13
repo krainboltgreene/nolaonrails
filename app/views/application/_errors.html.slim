@@ -1,0 +1,6 @@
+section#errors
+  header
+    h3 = "#{pluralize(record.errors.size, "error")} prohibited this account from being saved:"
+  ul
+    - record.errors.full_messages.each do |message|
+      li = message

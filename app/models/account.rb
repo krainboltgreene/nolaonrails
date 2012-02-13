@@ -9,7 +9,7 @@ class Account
   attr_accessible :email, :password, :name, :terms
 
   field :email
-  field :encrypted_password
+  field :crypted_password
   field :name
   field :role, type: Integer, default: 1
   field :terms, type: Boolean, default: false

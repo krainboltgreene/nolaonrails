@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
   before_filter -> { @footer = true }
 
+  caches_action :splash
+
   def splash
+    render stream: true
   end
 
   def about
