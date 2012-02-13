@@ -1,12 +1,29 @@
 class AccountsController < ApplicationController
+  before_filter :require_login, only: [:edit, :index, :show, :dashboard]
+  before_filter :new_account, only: [:new, :create]
+  before_filter :find_account, only: [:show, :edit, :update, :dashboard]
+  before_filter :find_accounts, only: [:index]
+  before_filter :decorate_account, only: [:show, :index, :dashboard]
+  before_filter :decorate_accounts, only: [:index]
+
   # GET /accounts
   # GET /accounts.json
   def index
     @accounts = Account.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.slim
       format.json { render json: @accounts }
+    end
+  end
+
+  # GET /accounts/1/dashboard
+  # GET /accounts/1/dashboard.json
+
+  def dashboard
+    respond_to do |format|
+      format.html # dashboard.html.slim
+      format.json { render json: @account }
     end
   end
 
@@ -16,7 +33,7 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.slim
       format.json { render json: @account }
     end
   end
@@ -27,7 +44,7 @@ class AccountsController < ApplicationController
     @account = Account.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.slim
       format.json { render json: @account }
     end
   end
@@ -40,14 +57,13 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    @account = Account.new(params[:account])
-
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
+        login @account.email, params[:account][:password]
+        format.html { redirect_to dashboard_account_path(current_user), notice: "You're all setup!" }
         format.json { render json: @account, status: :created, location: @account }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new", error: 'Something went wrong!' }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
@@ -79,5 +95,32 @@ class AccountsController < ApplicationController
       format.html { redirect_to accounts_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def new_account
+    @account = Account.new params[:account]
+  end
+
+  def find_account
+    if params[:id].present?
+      @account = Account.find_by_id params[:id]
+      redirect_to dashboard_account_path current_user unless @account.present?
+    else
+      redirect_back
+    end
+  end
+
+  def find_accounts
+    @accounts = Account.all
+  end
+
+  def decorate_account
+    @account = AccountDecorator.new @account if @account.present?
+  end
+
+  def decorate_accounts
+    @accounts = AccountDecorator.new @accounts if @accounts.present?
   end
 end

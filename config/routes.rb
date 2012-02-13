@@ -1,6 +1,8 @@
 NOR::Application.routes.draw do
 
-  resources :accounts
+  resources :accounts do
+    get 'dashboard' => 'accounts#dashboard', on: :member
+  end
 
   get 'signup'   => 'accounts#new'
   get 'splash'   => 'pages#splash',   as: :splash

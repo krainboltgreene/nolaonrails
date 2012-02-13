@@ -2,19 +2,26 @@
 = form_for @account, html: { class: 'form-horizontal new_account' } do |form|
   fieldset.row
     legend.span12 New Account
-    .span6 == render partial: 'form', locals: { form: form, record: @account }
+    .span6
+      == render partial: 'form', locals: { form: form, record: @account }
+      .control-group
+        = form.label :terms, class: 'control-label'
+        .controls
+          label.checkbox
+            = form.check_box :terms
+            | I accept the Terms & Conditions
+
     .span5
       .well
         - if @account.errors.any?
           == render partial: 'errors', locals: { record: @account }
         - else
           header
-            h3 Sign up for NOR!
+            h3 Sign Up for NOR!
           p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            | By signing up for <strong>Nola On Rails</strong> you're lined up
+              to enroll in in the weekly classes. In the class you'll learn how
+              to build, maintaine, and manage a Rails application.
   section.form-actions
     = form.button 'Join NOLA on Rails', class: 'btn btn-primary', name: 'commit'
     '
