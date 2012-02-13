@@ -1,4 +1,6 @@
-require 'highline/import'
+if Rails.env.development?
+  require 'highline/import'
+end
 
 namespace :release do
   task :new => [:drop, :setup, :assets, :add, "push:all", :finalize]
