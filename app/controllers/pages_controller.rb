@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   caches_action :splash
 
   def splash
-    render stream: true
   end
 
   def about
