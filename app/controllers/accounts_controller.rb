@@ -41,6 +41,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new
   # GET /accounts/new.json
   def new
+    flash[:notice] = "Unfortunately we're not ready for registration! Check in later."
     @account = Account.new
 
     respond_to do |format|
