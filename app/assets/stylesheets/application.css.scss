@@ -8,11 +8,11 @@
 // compiled file, but it's generally better to create a new file per style scope.
 //
 //= require bootstrap
+//= require jquery/noty
 //= require_self
 //= require_tree .
 
 body {
-
   background: image_url('redtrolly.jpg') no-repeat center center fixed;
   background-size: cover;
   & > article {
@@ -26,3 +26,5 @@ body {
     h3, p { color: rgba(255, 255, 255, .15); }
   }
 }
+
+form a.btn { vertical-align: middle; }

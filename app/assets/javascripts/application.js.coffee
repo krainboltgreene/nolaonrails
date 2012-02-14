@@ -12,6 +12,7 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require jquery/noty
 #= require spine/lib/spine
 #= require spine/lib/manager
 #= require spine/lib/ajax
@@ -25,3 +26,6 @@ $('input.error').each ->
 $('[data-title][data-content]').popover { title: 'data-title', content: 'data-content' }
 
 $('.alert').alert()
+
+$('#notifications').each ->
+  noty { text: $(this).html(); type: 'alert-danger'; timeout: false; closable: false; modal: true }

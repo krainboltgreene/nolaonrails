@@ -8,8 +8,18 @@ body.pages#splash {
   article header h1.title {
     text-align: center;
     &#nola { font-size: 8.25em; }
-    &#on { font-size: 6em; }
+    &#on { font-size: 6em; color: #DA4F49; }
     &#rails { font-size: 9em; font-family: "Vast Shadow", serif; }
+  }
+
+  article section.schedule {
+    background-color: white;
+    border-top: 1px red solid;
+    border-bottom: 1px red solid;
+    text-align: center;
+    h2#times { font-size: 2.75em; line-height: 1em; color: #DA4F49; }
+    h2#days { font-size: 3.5em; line-height: 1em; }
+    h2#dates { font-size: 4em; line-height: 1em; font-family: "Vast Shadow", serif; }
   }
 
   article section.pitch section {
