@@ -1,4 +1,3 @@
-
 = form_for @account, html: { class: 'form-horizontal new_account' } do |form|
   fieldset.row
     legend.span12 New Account
@@ -10,19 +9,17 @@
           label.checkbox
             = form.check_box :terms
             | I accept the Terms & Conditions
-
-    .span5
-      .well
-        - if @account.errors.any?
-          == render partial: 'errors', locals: { record: @account }
-        - else
-          header
-            h3 Sign Up for NOR!
-          p
-            | By signing up for <strong>Nola On Rails</strong> you're lined up
-              to enroll in in the weekly classes. In the class you'll learn how
-              to build, maintaine, and manage a Rails application.
+    .span4
+      - if @account.errors.any?
+        == render partial: 'errors', locals: { record: @account }
+      - else
+        header
+          h3 Sign Up for NOR!
+        p
+          | By signing up for <strong>Nola On Rails</strong> you're lined up
+            to enroll in in the weekly classes. In the class you'll learn how
+            to build, maintaine, and manage a Rails application.
   section.form-actions
-    = form.button 'Join NOLA on Rails', class: 'btn btn-primary', name: 'commit'
+    = form.button 'Join NOLA on Rails', class: 'btn btn-primary nyn', name: 'commit'
     '
     = form.button 'Cancel', class: 'btn', name: 'cancel'
