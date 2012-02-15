@@ -17,9 +17,10 @@ body.pages#splash {
     border-top: 1px red solid;
     border-bottom: 1px red solid;
     text-align: center;
-    h2#times { font-size: 2.75em; line-height: 1em; color: #DA4F49; }
-    h2#days { font-size: 3.5em; line-height: 1em; }
-    h2#dates { font-size: 4em; line-height: 1em; font-family: "Vast Shadow", serif; }
+    h2 small { vertical-align: middle;}
+    h2#times { font-size: 2.5em; line-height: 1.5em; color: #DA4F49; }
+    h2#days { font-size: 3em; line-height: 1.5em; }
+    h2#dates { font-size: 3.25em; line-height: 1.5em; font-family: "Vast Shadow", serif; }
   }
 
   article section.pitch section {
