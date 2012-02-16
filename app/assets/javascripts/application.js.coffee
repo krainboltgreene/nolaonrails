@@ -18,6 +18,7 @@
 #= require spine/lib/ajax
 #= require spine/lib/route
 #= require bootstrap
+#= require prefixfree
 #= require_tree .
 
 $('input.error').each ->
