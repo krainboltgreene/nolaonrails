@@ -3,7 +3,7 @@ if Rails.env.development?
 end
 
 namespace :release do
-  task :new => [:drop, :setup, :assets, :add, "push:all", :finalize]
+  task :new => [:drop, :setup, :assets, :add, "push:github", :stripe, "push:heroku", :finalize]
   desc "Delete the old release branch"
   task :drop do
     say "Dropping the previous release branch"
@@ -28,9 +28,18 @@ namespace :release do
     `git add . && git commit -m "Adding the compiled assets."`
   end
 
-  namespace :push do
-    task :all => [:heroku, :github]
+  desc "Setup the Stripe live key"
+  task :stripe do
+    `git rm config/initializers/stripe.rb`
+    public_key = ask "What is the Stripe Public Key? "
+    private_key = ask "What is the Stripe Private Key? "
+    open 'config/initializers/stripe.rb', 'w' do |file|
+      file.write %{ Stripe.api_key = "#{private_key}" \n STRIPE_PUBLIC_KEY = "#{public_key}" }
+    end
+    `git add -f config/initializers/stripe.rb && git commit -am "Adding the real stripe keys"`
+  end
 
+  namespace :push do
     desc "Push the repository to Heroku"
     task :heroku do
       say "Pushing to heroku"

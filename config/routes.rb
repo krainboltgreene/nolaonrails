@@ -1,18 +1,21 @@
 NOR::Application.routes.draw do
 
+  resources :sessions
   resources :accounts do
     get 'dashboard' => 'accounts#dashboard', on: :member
   end
 
   get 'signup'   => 'accounts#new'
-  get 'splash'   => 'pages#splash',   as: :splash
-  get 'about'    => 'pages#about',    as: :about
-  get 'policy'   => 'pages#policy',   as: :policy
-  get 'terms'    => 'pages#terms',    as: :terms
-  get 'pricing'  => 'pages#pricing',  as: :pricing
-  get 'support'  => 'pages#support',  as: :support
-  get 'sponsors' => 'pages#sponsors', as: :sponsors
-
+  get 'signout'  => 'sessions#destroy', as: :signout
+  get 'signin'   => 'sessions#new',     as: :signin
+  get 'splash'   => 'pages#splash',     as: :splash
+  get 'about'    => 'pages#about',      as: :about
+  get 'policy'   => 'pages#policy',     as: :policy
+  get 'terms'    => 'pages#terms',      as: :terms
+  get 'pricing'  => 'pages#pricing',    as: :pricing
+  get 'support'  => 'pages#support',    as: :support
+  get 'sponsors' => 'pages#sponsors',   as: :sponsors
+  get 'syllabus' => 'pages#syllabus',   as: :syllabus
 
   root to: 'pages#splash'
   # The priority is based upon order of creation:
