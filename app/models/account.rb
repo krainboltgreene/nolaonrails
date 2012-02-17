@@ -6,13 +6,14 @@ class Account
   authenticates_with_sorcery!
 
   attr_accessor :password, :password_confirmation
-  attr_accessible :email, :password, :name, :terms
+  attr_accessible :email, :password, :name, :terms, :role, :token
 
   field :email
   field :crypted_password
   field :name
   field :role, type: Integer, default: 1
   field :terms, type: Boolean, default: false
+  field :token, type: String
 
   index :email, unique: true
 
@@ -22,9 +23,11 @@ class Account
     format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,
     length: 0..256
   validates :password,
+    confirmation: true
+  validates :password,
     presence: true,
-    confirmation: true,
-    length: 8..256
+    length: 8..256,
+    on: :create
   validates :name,
     presence: true,
     format: /[\w\s\-\,\.]/,

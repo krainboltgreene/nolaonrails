@@ -18,7 +18,7 @@ body.pages#splash {
     border-bottom: 1px red solid;
     text-align: center;
     h2 small { vertical-align: middle;}
-    h2#times { font-size: 2.5em; line-height: 1.5em; color: #DA4F49; }
+    h2#times { font-size: 2.5em; line-height: 1.75em; color: #DA4F49; }
     h2#days { font-size: 3em; line-height: 1.5em; }
     h2#dates { font-size: 3.25em; line-height: 1.5em; font-family: "Vast Shadow", serif; }
   }
@@ -27,8 +27,6 @@ body.pages#splash {
     background: white;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    header, p {
-      padding: 0px 1em;
-    }
+    header, p { padding: 0px 1em; }
   }
 }

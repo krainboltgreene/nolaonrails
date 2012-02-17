@@ -2,18 +2,15 @@ doctype html
 html
   head
     = render partial: 'meta'
-    = stylesheet_link_tag  'application', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all'
     link href='http://fonts.googleapis.com/css?family=Vast+Shadow' rel='stylesheet' type='text/css'
+    - if controller.controller_name == "accounts" && controller.action_name == "edit"
+      script type="text/javascript" src="https://js.stripe.com/v1/"
     = csrf_meta_tags
   body class=controller.controller_name id=controller.action_name
-    - if view_has_header?
-      = render partial: 'header'
-    - if notice.present?
-      = render partial: 'notifications'
-    article.container
-      == yield
-    - if view_has_footer?
-      = render partial: 'footer'
-  = cache do
-    = render partial: 'analytics'
+    = render partial: 'header' if view_has_header?
+    = render partial: 'notifications' if notice.present?
+    article.container == yield
+    = render partial: 'footer' if view_has_footer?
+  = render partial: 'analytics'
   = javascript_include_tag 'application'
