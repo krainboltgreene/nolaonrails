@@ -1,6 +1,14 @@
 class AccountDecorator < ApplicationDecorator
   decorates :account
 
+
+  def role_cost
+    case role
+      when 1 then "$350<small>.00</small>"
+      when 2 then "$325<small>.00</small>"
+      when 3 then "$300<small>.00</small>"
+    end.html_safe
+  end
   # Accessing Helpers
   #   You can access any helper via a proxy
   #

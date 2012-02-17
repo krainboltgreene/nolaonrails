@@ -1,0 +1,18 @@
+= form.hidden_field :token
+= form.hidden_field :role
+- if record.token.present?
+  p Credit card has been provided.
+- else
+  .control-group
+    = label_tag :card_number, "Card Number", class: 'control-label'
+    .controls = text_field_tag :card_number, nil, name: nil, class: 'input-large', placeholder: '#### #### #### ####'
+
+  .control-group
+    = label_tag :card_code, "Security Code", class: 'control-label'
+    .controls = text_field_tag :card_code, nil, name: nil, class: 'span1', placeholder: '###'
+
+  .control-group
+    = label_tag :card_month, "Card Expiration", class: 'control-label'
+    .controls
+      = select_month nil, { add_month_numbers: true}, { name: nil, id: "card_month", class: 'input-medium' }
+      = select_year nil, { start_year: Date.today.year, end_year: Date.today.year+15 }, { name: nil, id: "card_year", class: 'input-small' }

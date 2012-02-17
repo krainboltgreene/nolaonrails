@@ -3,14 +3,12 @@ class AccountsController < ApplicationController
   before_filter :new_account, only: [:new, :create]
   before_filter :find_account, only: [:show, :edit, :update, :dashboard]
   before_filter :find_accounts, only: [:index]
-  before_filter :decorate_account, only: [:show, :index, :dashboard]
+  before_filter :decorate_account, only: [:show, :edit, :index, :dashboard]
   before_filter :decorate_accounts, only: [:index]
 
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
-
     respond_to do |format|
       format.html # index.html.slim
       format.json { render json: @accounts }
@@ -19,7 +17,6 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/dashboard
   # GET /accounts/1/dashboard.json
-
   def dashboard
     respond_to do |format|
       format.html # dashboard.html.slim
@@ -27,11 +24,18 @@ class AccountsController < ApplicationController
     end
   end
 
+  # GET /accounts/:id/payments
+  # GET /accounts/:id/payments.json
+  def payments
+    respond_to do |format|
+      format.html # payments.html.slim
+      format.json { render json: @account }
+    end
+  end
+
   # GET /accounts/1
   # GET /accounts/1.json
   def show
-    @account = Account.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.slim
       format.json { render json: @account }
@@ -41,9 +45,6 @@ class AccountsController < ApplicationController
   # GET /accounts/new
   # GET /accounts/new.json
   def new
-    flash[:notice] = "Unfortunately we're not ready for registration! Check in later."
-    @account = Account.new
-
     respond_to do |format|
       format.html # new.html.slim
       format.json { render json: @account }
@@ -52,7 +53,6 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
-    @account = Account.find(params[:id])
   end
 
   # POST /accounts
@@ -61,7 +61,7 @@ class AccountsController < ApplicationController
     respond_to do |format|
       if @account.save
         login @account.email, params[:account][:password]
-        format.html { redirect_to dashboard_account_path(current_user), notice: "You're all setup!" }
+        format.html { redirect_to edit_account_path(current_user), notice: "You're all setup!" }
         format.json { render json: @account, status: :created, location: @account }
       else
         format.html { render action: "new", error: 'Something went wrong!' }
@@ -73,11 +73,17 @@ class AccountsController < ApplicationController
   # PUT /accounts/1
   # PUT /accounts/1.json
   def update
-    @account = Account.find(params[:id])
-
     respond_to do |format|
       if @account.update_attributes(params[:account])
-        format.html { redirect_to @account, notice: 'Account was successfully updated.' }
+        cost = case @account.role
+          when 1 then 35000
+          when 2 then 32500
+          when 3 then 30000
+        end
+        charge = Stripe::Charge.create(amount: cost, currency: "usd", card: @account.token, description: @account.email)
+        p charge
+        @account.update token: charge.id
+        format.html { redirect_to edit_account_path(current_user), notice: 'Account was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -89,9 +95,7 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1
   # DELETE /accounts/1.json
   def destroy
-    @account = Account.find(params[:id])
     @account.destroy
-
     respond_to do |format|
       format.html { redirect_to accounts_url }
       format.json { head :no_content }

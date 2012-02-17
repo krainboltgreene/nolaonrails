@@ -1,0 +1,18 @@
+.control-group
+  = form.label :role, link_to("Payment Types", pricing_path).html_safe, class: 'control-label'
+  .controls
+    label.radio
+      = form.radio_button :role, 1
+      ' I'm a regular person
+    label.radio
+      = form.radio_button :role, 2
+      ' I'm from a company in New Orleans
+    label.radio
+      = form.radio_button :role, 3
+      ' I'm a Launchpad Member
+.control-group
+  = form.label :terms, class: 'control-label'
+  .controls
+    label.checkbox
+      = form.check_box :terms
+      ' I accept the Terms & Conditions

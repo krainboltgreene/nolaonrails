@@ -4,6 +4,11 @@
     = form.email_field :email, class: 'input-xlarge', placeholder: 'jpublic@email.com', data: email_popover
 
 .control-group
+  = form.label :name, class: 'control-label'
+  .controls
+    = form.text_field :name, class: 'input-xlarge', placeholder: 'John Q. Public', data: name_popover
+
+.control-group
   = form.label :password, class: 'control-label'
   .controls
     = form.password_field :password, class: 'input-xlarge', placeholder: 'thisisaverysecretpassword', data: password_popover
@@ -12,8 +17,3 @@
   = form.label :password_confirmation, 'Confirmation', class: 'control-label'
   .controls
     = form.password_field :password_confirmation, class: 'input-xlarge', placeholder: 'thisisaverysecretpassword', data: confirmation_popover
-
-.control-group
-  = form.label :name, class: 'control-label'
-  .controls
-    = form.text_field :name, class: 'input-xlarge', placeholder: 'John Q. Public', data: name_popover
