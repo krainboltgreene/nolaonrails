@@ -1,0 +1,24 @@
+= form_tag session_path, class: 'form-horizontal new_session' do
+  fieldset.row
+    legend.span12 Sign In
+    .span6
+      .control-group
+        = label_tag :email, nil, class: 'control-label'
+        .controls
+          = email_field_tag :email, nil, class: 'input-xlarge', placeholder: 'jpublic@email.com', data: email_popover
+
+      .control-group
+        = label_tag :password, nil, class: 'control-label'
+        .controls
+          = password_field_tag :password, nil, class: 'input-xlarge', placeholder: 'thisisaverysecretpassword', data: password_popover
+      .control-group
+        = label_tag :remember_me, nil, class: 'control-label'
+        .controls
+          label.checkbox
+            = check_box_tag :remember_me
+            | Remember me for 7 days!
+  section.form-actions
+    = button_tag 'Join NOLA on Rails', class: 'btn btn-primary', name: 'commit'
+    '
+    = button_tag 'Cancel', class: 'btn', name: 'cancel'
+
