@@ -21,6 +21,12 @@
 #= require prefixfree
 #= require_tree .
 
+article = $('body > article')
+article_height = article.height()
+window_height = $(window).height()
+if article_height < window_height
+  article.css('margin-bottom', window_height - article_height)
+
 $('input.error').each ->
   $(this).parent().parent().addClass 'error'
 
@@ -29,4 +35,4 @@ $('[data-title][data-content]').popover { title: 'data-title', content: 'data-co
 $('.alert').alert()
 
 $('#notifications').each ->
-  noty { text: $(this).html(); type: 'alert-danger'; timeout: false; closable: false; modal: true }
+  noty { text: $(this).html(); type: 'alert-danger';}
