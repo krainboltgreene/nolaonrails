@@ -1,0 +1,28 @@
+= form_for @course, html: { class: 'form-horizontal new_course'} do |form|
+  - if @course.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
+      ul
+        - @course.errors.full_messages.each do |message|
+          li = message
+  .control-group
+    = form.label :title, class: 'control-label'
+    .controls
+      = form.text_field :title
+
+  .control-group
+    = form.label :week, class: 'control-label'
+    .controls
+      = form.text_field :week
+
+  .control-group
+    = form.label :day, class: 'control-label'
+    .controls
+      = form.text_field :day
+
+  .control-group
+    = form.label :source_url, class: 'control-label'
+    .controls
+      = form.text_field :source_url
+
+  .form-actions = form.button 'Save', name: "submit", class: "btn btn-primary"

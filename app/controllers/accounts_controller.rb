@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
   before_filter :find_accounts, only: [:index]
   before_filter :decorate_account, only: [:show, :edit, :index, :dashboard]
   before_filter :decorate_accounts, only: [:index]
+  before_filter -> { @header = false }, only: [:new, :create]
 
   # GET /accounts
   # GET /accounts.json

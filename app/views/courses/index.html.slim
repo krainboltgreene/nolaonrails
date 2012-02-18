@@ -1,0 +1,9 @@
+header.page-header
+  h1 Class Syllabus
+
+- for course_week in course_weeks
+  section.week
+    ul.courses
+      - for course in course_week
+        li.course
+          = link_to course.title, course

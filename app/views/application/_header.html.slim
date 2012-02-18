@@ -5,8 +5,8 @@ header
       li class={"active" if controller.action_name == "dashboard"}
         = link_to "Dashboard", dashboard_account_path(current_user)
 
-      li class={"active" if controller.action_name == "syllabus"}
-        = link_to "Syllabus", syllabus_path
+      li class={"active" if controller.controller_name == "courses" && controller.action_name == "index"}
+        = link_to "Syllabus", courses_path
 
       li class={"active" if controller.controller_name == "accounts" && controller.action_name == "edit"}
         = link_to "Account", current_user

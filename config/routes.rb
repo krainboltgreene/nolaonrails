@@ -1,5 +1,5 @@
 NOR::Application.routes.draw do
-
+  resources :courses
   resources :sessions
   resources :accounts do
     get 'dashboard' => 'accounts#dashboard', on: :member

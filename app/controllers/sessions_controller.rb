@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter -> { @header = false }, only: [:new, :create]
+
   # GET /sessions/new
   # GET /sessions/new.json
   def new

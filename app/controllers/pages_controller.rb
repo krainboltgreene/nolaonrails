@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   caches_action :splash
 
   def splash
-    expire_action action: :splash if params[:expire]
   end
 
   def about
