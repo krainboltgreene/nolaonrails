@@ -9,4 +9,4 @@ header
         = link_to "Syllabus", courses_path
 
       li class={"active" if controller.controller_name == "accounts" && controller.action_name == "edit"}
-        = link_to "Account", current_user
+        = link_to "Account", edit_account_path(current_user)
