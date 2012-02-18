@@ -9,8 +9,10 @@ gem 'thin', '~> 1'
 gem 'bcrypt-ruby', '~> 3', require: 'bcrypt'
 gem 'slim-rails', '~> 1'
 gem 'jquery-rails', '~> 2'
+gem 'redcarpet', '~> 2'
 gem 'dalli', '~> 1'
 gem 'stripe', '~> 1.6'
+
 
 group :production do
   gem 'newrelic_rpm', '~> 3'
