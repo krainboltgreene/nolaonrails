@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   before_filter -> { @header = false }
-  before_filter :require_login, only: [:syllabus]
 
   caches_action :splash
 
