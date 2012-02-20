@@ -1,25 +1,35 @@
 = form_for @account, html: { class: 'form-horizontal edit_account' } do |form|
-  fieldset.row
-    legend.span12 Edit Account
-    .span6
-      == render partial: 'form', locals: { form: form, record: @account }
-    .span4
-      - if @account.errors.any?
-        == render partial: 'errors', locals: { record: @account }
+  fieldset
+    legend
+      h2 Account Details
+    section#form.row
+      br
+      .span6
+        == render partial: 'form', locals: { form: form, record: @account }
+      .span6
+        - if @account.errors.any?
+          == render partial: 'errors', locals: { record: @account }
+        - else
+          p See our site #{link_to "policy", policy_path} for payments, and the #{link_to "terms of use", terms_path} for the class.
+  fieldset
+    legend
+      h2 Payment Details
+    section#form.row
+      br
+      - if @payed_accounts >= 12
+        h2.span12 style="text-align: center;"
+          - email = "mailto:nolaonrails@kurtisrainboltgreene.name"
+          | We're sorry, but all 12 seats are taken! Feel free to #{link_to "contact us", email}.
       - else
-        p See our site #{link_to "policy", policy_path} for payments, and the #{link_to "terms of use", terms_path} for the class.
-  fieldset.row
-    legend.span12 Payment Details
-    == render partial: 'payments', locals: { form: form, record: @account }
-    .span6
-      - unless @account.token.present?
-        p
-          em The total cost for your seat is:
-        h2#cost = @account.role_cost
-    .span12
-      section#stripe_error style="text-align: center;"
-        noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
-  section.form-actions
-    = form.button 'Save', class: 'btn btn-primary', name: 'commit'
-    '
-    = form.button 'Cancel', class: 'btn', name: 'cancel'
+        == render partial: 'payments', locals: { form: form, record: @account }
+        .span6
+          - unless @account.token.present?
+            p The total cost for your seat is:
+            h2#cost = @account.role_cost
+        .span12
+          section#stripe_error style="text-align: center;"
+            noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+    section.form-actions
+      = form.button 'Save', class: 'btn btn-primary', name: 'commit'
+      '
+      = form.button 'Cancel', class: 'btn', name: 'cancel'

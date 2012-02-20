@@ -45,6 +45,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
+    @payed_accounts = Account.all.select(&:token).size
   end
 
   # POST /accounts
