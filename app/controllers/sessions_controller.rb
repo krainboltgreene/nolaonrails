@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   def create
     respond_to do |format|
       if login(params[:email], params[:password], params[:remember_me])
-        format.html { redirect_to dashboard_account_path(current_user), notice: 'You have been logged in.' }
+        format.html { redirect_to edit_account_path(current_user), notice: 'You have been logged in.' }
         format.json { render json: @session, status: :created, location: @account }
       else
         format.html { flash[:notice] = "You seem to have entered the wrong email or password."; render action: "new" }
