@@ -68,14 +68,16 @@ class AccountsController < ApplicationController
   def update
     respond_to do |format|
       if @account.update_attributes(params[:account])
-        unless @account.token
+        unless @account.payed?
           cost = case @account.role
             when 1 then 35000
             when 2 then 32500
             when 3 then 30000
           end
           charge = Stripe::Charge.create(amount: cost, currency: "usd", card: @account.token, description: @account.email)
-          @account.update token: charge.id
+          @account.token = charge.id
+          @account.payed = true
+          @account.save
         end
         format.html { redirect_to edit_account_path(current_user), notice: 'Account was successfully updated.' }
         format.json { head :no_content }

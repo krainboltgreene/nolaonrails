@@ -23,7 +23,7 @@
       - else
         == render partial: 'payments', locals: { form: form, record: @account }
         .span6
-          - unless @account.token.present?
+          - unless @account.payed?
             p The total cost for your seat is:
             h2#cost = @account.role_cost
         .span12

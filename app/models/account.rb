@@ -14,6 +14,7 @@ class Account
   field :role, type: Integer, default: 1
   field :terms, type: Boolean, default: false
   field :token, type: String
+  field :payed, type: Boolean, default: false
 
   index :email, unique: true
 

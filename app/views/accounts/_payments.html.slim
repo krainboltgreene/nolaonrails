@@ -1,6 +1,6 @@
 = form.hidden_field :token
 = form.hidden_field :role
-- if record.token.present?
+- if record.payed?
   h2.span12 style="text-align: center;" You've already provided your credit card, and a payment has been made.
 - else
   .span6
