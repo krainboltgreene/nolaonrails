@@ -14,13 +14,21 @@ body.pages#splash {
 
   article section.schedule {
     background-color: white;
-    border-top: 1px red solid;
-    border-bottom: 1px red solid;
+    border-top: 1px #DA4F49 solid;
+    border-bottom: 1px #DA4F49 solid;
     text-align: center;
     h2 small { vertical-align: middle;}
     h2#times { font-size: 2.5em; line-height: 1.75em; color: #DA4F49; }
     h2#days { font-size: 3em; line-height: 1.5em; }
     h2#dates { font-size: 3.25em; line-height: 1.5em; font-family: "Vast Shadow", serif; }
+  }
+
+  article section.location {
+    h2#where { font-size: 3.25em; line-height: 1.5em; font-family: "Vast Shadow", serif; text-align: center; }
+    iframe {
+      border-top: 1px #DA4F49 solid;
+      border-bottom: 1px #DA4F49 solid;
+    }
   }
 
   article section.pitch section {
