@@ -1,9 +1,14 @@
 class CoursesController < ApplicationController
+  before_filter :require_login, only: [:edit, :new]
+  before_filter :new_course, only: [:new, :create]
+  before_filter :find_course, only: [:show, :edit, :update]
+  before_filter :find_courses, only: [:index]
+  before_filter :decorate_course, only: [:show, :edit, :index]
+  before_filter :decorate_courses, only: [:index]
+
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @courses }
@@ -13,8 +18,6 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    @course = Course.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @course }
@@ -24,8 +27,6 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.json
   def new
-    @course = Course.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @course }
@@ -34,14 +35,11 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
-    @course = Course.find(params[:id])
   end
 
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(params[:course])
-
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
@@ -56,8 +54,6 @@ class CoursesController < ApplicationController
   # PUT /courses/1
   # PUT /courses/1.json
   def update
-    @course = Course.find(params[:id])
-
     respond_to do |format|
       if @course.update_attributes(params[:course])
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
@@ -72,12 +68,37 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
-    @course = Course.find(params[:id])
     @course.destroy
-
     respond_to do |format|
       format.html { redirect_to courses_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def new_course
+    @course = Course.new params[:course]
+  end
+
+  def find_course
+    if params[:id].present?
+      @course = Course.find_by_id params[:id]
+      redirect_to new_courses_path unless @course.present?
+    else
+      redirect_back
+    end
+  end
+
+  def find_courses
+    @courses = Course.all
+  end
+
+  def decorate_course
+    @course = CourseDecorator.new @course if @course.present?
+  end
+
+  def decorate_courses
+    @courses = CourseDecorator.new @courses if @courses.present?
   end
 end

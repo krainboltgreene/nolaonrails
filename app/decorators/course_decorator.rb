@@ -3,22 +3,22 @@ class CourseDecorator < ApplicationDecorator
 
 
   def slide
-    resources.slide || "#"
+    resource.slide || "#"
   end
 
   def source
-    resources.source || "#"
+    resource.source || "#"
   end
 
   def video
-    resources.video || "#"
+    resource.video || "#"
   end
 
   def audio
-    resources.audio || "#"
+    resource.audio || "#"
   end
 
   def links
-    resources.links
+    resource.links
   end
 end
