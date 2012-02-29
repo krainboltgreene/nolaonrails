@@ -1,28 +1,43 @@
-= form_for @course, html: { class: 'form-horizontal new_course'} do |form|
-  - if @course.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
-      ul
-        - @course.errors.full_messages.each do |message|
-          li = message
-  .control-group
-    = form.label :title, class: 'control-label'
-    .controls
-      = form.text_field :title
+.control-group
+  = form.label :title, class: 'control-label'
+  .controls
+    = form.text_field :title
 
-  .control-group
-    = form.label :week, class: 'control-label'
-    .controls
-      = form.text_field :week
+.control-group
+  = form.label :description, class: 'control-label'
+  .controls
+    = form.text_field :description
 
-  .control-group
-    = form.label :day, class: 'control-label'
-    .controls
-      = form.text_field :day
+.control-group
+  = form.label :week, class: 'control-label'
+  .controls
+    = form.text_field :week
 
-  .control-group
-    = form.label :source_url, class: 'control-label'
-    .controls
-      = form.text_field :source_url
+.control-group
+  = form.label :day, class: 'control-label'
+  .controls
+    = form.text_field :day
 
-  .form-actions = form.button 'Save', name: "submit", class: "btn btn-primary"
+= form.fields_for :resource do |resource_form|
+  fieldset
+    .control-group
+      = resource_form.label :slide
+      .controls
+        = resource_form.text_field :slide
+
+    .control-group
+      = resource_form.label :source
+      .controls
+        = resource_form.text_field :source
+
+    .control-group
+      = resource_form.label :video
+      .controls
+        = resource_form.text_field :video
+
+    .control-group
+      = resource_form.label :audio
+      .controls
+        = resource_form.text_field :audio
+
+.form-actions = form.button 'Save', name: "submit", class: "btn btn-primary"

@@ -1,4 +1,10 @@
 header.page-header
-  h1 New course
-
-== render 'form'
+  h1 New Course
+= form_for @course, html: { class: 'form-horizontal new_course' } do |form|
+  fieldset.row
+    section#form
+      .span6
+        == render partial: 'form', locals: { form: form }
+      .span6
+        - if @course.errors.any?
+          == render partial: 'errors', locals: { record: @course }

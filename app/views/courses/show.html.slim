@@ -1,6 +1,21 @@
-p#notice = notice
+header.page-header
+  h1 Course ##{@course.day}
+section#course
+  p
+    strong Title:
+    '
+    = @course.title
+  p
+    strong Resources:
+    '
+    = link_to "Source", @course.source
+    '
+    = link_to "Presentation", @course.slide
+    '
+    = link_to "Video", @course.video
+    '
+    = link_to "Audio", @course.audio
+  p
+    strong Links:
+    '
 
-
-= link_to 'Edit', edit_course_path(@course)
-'|
-= link_to 'Back', courses_path
