@@ -9,15 +9,15 @@ section#course
             li.btn
               i.icon-file
               = link_to "Source", @course.source
-          - if @course.slide
+          - if @course.slide.present?
             li.btn
               i.icon-picture
               = link_to "Presentation", @course.slide
-          - if @course.video
+          - if @course.video.present?
             li.btn
               i.icon-facetime-video
               = link_to "Video", @course.video
-          - if @course.audio
+          - if @course.audio.present?
             li.btn
               i.icon-music
               = link_to "Audio", @course.audio
