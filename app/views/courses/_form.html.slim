@@ -1,43 +1,4 @@
-.control-group
-  = form.label :title, class: 'control-label'
-  .controls
-    = form.text_field :title
-
-.control-group
-  = form.label :description, class: 'control-label'
-  .controls
-    = form.text_field :description
-
-.control-group
-  = form.label :week, class: 'control-label'
-  .controls
-    = form.text_field :week
-
-.control-group
-  = form.label :day, class: 'control-label'
-  .controls
-    = form.text_field :day
-
-= form.fields_for :resource do |resource_form|
-  fieldset
-    .control-group
-      = resource_form.label :slide
-      .controls
-        = resource_form.text_field :slide
-
-    .control-group
-      = resource_form.label :source
-      .controls
-        = resource_form.text_field :source
-
-    .control-group
-      = resource_form.label :video
-      .controls
-        = resource_form.text_field :video
-
-    .control-group
-      = resource_form.label :audio
-      .controls
-        = resource_form.text_field :audio
-
-.form-actions = form.button 'Save', name: "submit", class: "btn btn-primary"
+= form.input :title, required: true
+= form.input :description, as: :text, required: true, input_html: { class: 'span4', rows: '5'}
+= form.input :week, collection: (1..6), input_html: { class: 'span1' }
+= form.input :day, collection: (1..18), input_html: { class: 'span1' }

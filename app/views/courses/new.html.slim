@@ -1,10 +1,12 @@
 header.page-header
-  h1 New Course
-= form_for @course, html: { class: 'form-horizontal new_course' } do |form|
-  fieldset.row
-    section#form
-      .span6
-        == render partial: 'form', locals: { form: form }
-      .span6
-        - if @course.errors.any?
-          == render partial: 'errors', locals: { record: @course }
+  h1 = @title
+
+= simple_form_for @course, html: { class: 'form-horizontal' } do |form|
+  = form.error_notification
+  = render partial: 'form', locals: { form: form }
+  = simple_form_for :resource do |resource_form|
+    = render partial: 'form_resource', locals: { form: resource_form }
+  .form-actions
+    = form.button :submit, class: 'btn-primary'
+    '
+    = submit_tag 'Reset', type: :reset, class: "btn btn-danger"

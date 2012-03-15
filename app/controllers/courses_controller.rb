@@ -1,10 +1,11 @@
 class CoursesController < ApplicationController
-  before_filter :require_login, only: [:edit, :new]
+  before_filter :require_login, only: [:new, :create, :edit, :update]
   before_filter :new_course, only: [:new, :create]
   before_filter :find_course, only: [:show, :edit, :update]
   before_filter :find_courses, only: [:index]
   before_filter :decorate_course, only: [:show, :edit, :index]
   before_filter :decorate_courses, only: [:index]
+  before_filter -> { @title = action_name.capitalize + " " + controller_name.singularize.capitalize }
 
   # GET /courses
   # GET /courses.json
