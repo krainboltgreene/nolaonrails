@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_filter -> { @header = false }, only: [:new, :create]
+  before_filter -> { redirect_to dashboard_account_path(current_user) if logged_in? }
 
   # GET /sessions/new
   # GET /sessions/new.json

@@ -1,6 +1,6 @@
 NOR::Application.routes.draw do
   resources :courses
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
   resources :accounts do
     get 'dashboard' => 'accounts#dashboard', on: :member
   end
