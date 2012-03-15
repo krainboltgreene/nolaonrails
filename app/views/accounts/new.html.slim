@@ -1,22 +1,22 @@
-= form_for @account, html: { class: 'form-horizontal new_account' } do |form|
-  fieldset.row
-    legend.span12 New Account
-    .span6
-      == render partial: 'form', locals: { form: form, record: @account }
-      == render partial: 'form_new', locals: { form: form, record: @account }
-    .span4
-      - if @account.errors.any?
-        == render partial: 'errors', locals: { record: @account }
-      - else
-        header
-          h3 Sign Up for NOR!
-        p
-          | By signing up for <strong>Nola On Rails</strong> you're lined up
-            to enroll in in the weekly classes. In the class you'll learn how
-            to build, maintaine, and manage a Rails application.
-        == render partial: 'payment_table'
+header.page-header
+  h1 = @title
 
-  section.form-actions
-    = form.button 'Join NOLA on Rails', class: 'btn btn-primary', name: 'commit'
+= simple_form_for @account, html: { class: 'form-horizontal' } do |form|
+  = form.error_notification
+  .row
+    .span6
+      = render partial: 'form', locals: { form: form }
+      = form.input :terms, as: :boolean, hint: "I accept the Terms & Conditions", required: true
+      = form.input :role, collection: role_options, as: :radio, label: "Payment Type", required: true
+    .span6
+      header
+        h2 Sign Up for NOR!
+      p
+        | By signing up for <strong>Nola On Rails</strong> you're lined up
+          to enroll in in the weekly classes. In the class you'll learn how
+          to build, maintaine, and manage a Rails application.
+      == render partial: 'payment_table'
+  .form-actions
+    = form.button :submit, class: 'btn-primary'
     '
-    = form.button 'Cancel', class: 'btn', name: 'cancel'
+    = submit_tag 'Reset', type: :reset, class: "btn btn-danger"

@@ -6,6 +6,7 @@ class AccountsController < ApplicationController
   before_filter :decorate_account, only: [:show, :edit, :index, :dashboard]
   before_filter :decorate_accounts, only: [:index]
   before_filter -> { @header = false }, only: [:new, :create]
+  before_filter -> { @title = action_name.capitalize + " " + controller_name.singularize.capitalize }
 
   # GET /accounts
   # GET /accounts.json
@@ -53,7 +54,7 @@ class AccountsController < ApplicationController
   def create
     respond_to do |format|
       if @account.save
-        login @account.email, params[:account][:password]
+        auto_login @account
         format.html { redirect_to edit_account_path(current_user), notice: "You're all setup!" }
         format.json { render json: @account, status: :created, location: @account }
       else

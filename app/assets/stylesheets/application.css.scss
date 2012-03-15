@@ -8,27 +8,40 @@
 // compiled file, but it's generally better to create a new file per style scope.
 //
 //= require bootstrap
-//= require jquery/noty
 //= require_self
 //= require_tree .
+
+form a.btn { vertical-align: middle; }
+.navbar-search { margin-top: 4px; }
+input[type="image"], input[type="checkbox"], input[type="radio"] { margin: 6px 6px; }
+.controls > .radio:first-child, .controls > .checkbox:first-child { padding-top: 6px;}
+.form-actions { background-color: transparent;}
+[class^="icon-"], [class*=" icon-"] { width: 18px; vertical-align: initial; background-image: image_url("glyphicons-halfings.png"); }
+.icon-white { background-image: image_url("glyphicons-halfings-white.png"); }
 
 body {
   background: image_url('redtrolly.jpg') no-repeat center center fixed;
   background-size: cover;
+
+  .navbar-inner {
+    background-color: #DA4F49;
+    background-image: linear-gradient(top, #DA4F49, #B34848);
+  }
+  .navbar {
+    margin-top: 5px;
+    .nav > li > a { color: whiteSmoke; }
+  }
+
   & > article {
-    margin-top: 40px;
+    padding: 25px;
+    margin-top: 35px;
     background-color: rgba(255, 255, 255, 0.85);
     border: 1px silver solid; }
+
   & > footer {
     background: black image_url('tile.png');
     margin-top: 10em;
     box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
-    h3, p { color: rgba(255, 255, 255, .15); }
+    h3, p { color: rgba(255, 255, 255, .5); }
   }
 }
-
-form a.btn { vertical-align: middle; }
-.navbar-inner { background-color: #DA4F49; background-image: linear-gradient(top, #DA4F49, #B34848); }
-.navbar .nav > li > a { color: whiteSmoke; }
-.form-actions { background-color: transparent;}
-ol, ul {  }

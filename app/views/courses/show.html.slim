@@ -1,20 +1,31 @@
 header.page-header
-  h1 Course ##{@course.day}: #{@course.title}
+  h1 Session #{@course.day}: #{@course.title}
 section#course
-  p
-    strong Description
-  p = @course.description
-  p
-    strong Resources:
-    '
-    = link_to "Source", @course.source
-    = ' | '
-    = link_to "Presentation", @course.slide
-    = ' | '
-    = link_to "Video", @course.video
-    = ' | '
-    = link_to "Audio", @course.audio
-  p
-    strong Links:
-    '
+  .row
+    .span8
+      .subnav
+        ul.btn-group
+          - if @course.source.present?
+            li.btn
+              i.icon-file
+              = link_to "Source", @course.source
+          - if @course.slide
+            li.btn
+              i.icon-picture
+              = link_to "Presentation", @course.slide
+          - if @course.video
+            li.btn
+              i.icon-facetime-video
+              = link_to "Video", @course.video
+          - if @course.audio
+            li.btn
+              i.icon-music
+              = link_to "Audio", @course.audio
+      p = @course.description
+    .span4
+      header
+        h2 Links
+      ul.links
+        - for link in @course.links do
+          li = link_to link.name, link.url
 

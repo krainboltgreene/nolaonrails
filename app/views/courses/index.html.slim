@@ -1,9 +1,14 @@
 header.page-header
   h1 Courses
 
-- for course_week in course_weeks
-  section.week
-    ul.courses
-      - for course in course_week
-        li.course
-          = link_to course.title, course
+ol.weeks
+  .thumbnails
+    - for course_week in course_weeks
+      li.week
+        .thumbnail.span3
+          h2 Week #{course_week.first.week}
+          hr
+          ol.courses.thumbnails
+            - for course in course_week
+              li.course.span1
+                h3 = link_to "Day #{course.day}", course

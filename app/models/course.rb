@@ -7,6 +7,7 @@ class Course
   field :day, type: Integer
 
   embeds_one :resource
+  embeds_many :links
 
   index :title, unique: true
   index :day, unique: true
@@ -22,13 +23,12 @@ class Resource
   field :video
   field :audio
 
-  embeds_many :links
 end
 
 class Link
   include Mongoid::Document
 
-  embedded_in :resource
+  embedded_in :course
 
   field :name
   field :url
