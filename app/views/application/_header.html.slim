@@ -1,6 +1,6 @@
 header
   .navbar.container.navbar-inner
-    = link_to ApplicationHelper::APPLICATION[:name], dashboard_account_path(current_user), class: "brand"
+    = link_to ApplicationHelper::APPLICATION[:name], root_url, class: "brand"
     ul.nav
       li class={"active" if controller.action_name == "dashboard"}
         = link_to "Dashboard", dashboard_account_path(current_user)

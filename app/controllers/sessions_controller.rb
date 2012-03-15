@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_filter -> { @header = false }, only: [:new, :create]
-  before_filter -> { redirect_to dashboard_account_path(current_user) if logged_in? }
+  before_filter -> { redirect_to dashboard_account_path(current_user) if logged_in? }, only: [:new, :create]
 
   # GET /sessions/new
   # GET /sessions/new.json
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   # POST /sessions.json
   def create
     respond_to do |format|
-      if login(params[:email], params[:password], params[:remember_me])
+      if login(params[:session][:email], params[:session][:password], params[:session][:remember_me])
         format.html { redirect_to edit_account_path(current_user), notice: 'You have been logged in.' }
         format.json { render json: @session, status: :created, location: @account }
       else

@@ -1,24 +1,10 @@
-= form_tag session_path, class: 'form-horizontal new_session' do
-  fieldset.row
-    legend.span12 Sign In
-    .span6
-      .control-group
-        = label_tag :email, nil, class: 'control-label'
-        .controls
-          = email_field_tag :email, nil, class: 'input-xlarge', placeholder: 'jpublic@email.com', data: email_popover
-
-      .control-group
-        = label_tag :password, nil, class: 'control-label'
-        .controls
-          = password_field_tag :password, nil, class: 'input-xlarge', placeholder: 'thisisaverysecretpassword', data: password_popover
-      .control-group
-        = label_tag :remember_me, nil, class: 'control-label'
-        .controls
-          label.checkbox
-            = check_box_tag :remember_me
-            | Remember me for 7 days!
-  section.form-actions
-    = button_tag 'Sign In', class: 'btn btn-primary', name: 'commit'
+header.page-header
+  h1 Sign In
+= simple_form_for :session, url: sessions_path, html: { class: 'form-horizontal' } do |form|
+  = form.input :email, required: true, placeholder: "jpublic@gmail.com"
+  = form.input :password, required: true, placeholder: "yoursecretpassword"
+  = form.input :remember_me, label: 'Remember Me', as: :boolean, hint: "Remember my login details!"
+  .form-actions
+    = form.button :submit, class: 'btn-primary', value: 'Sign In'
     '
-    = button_tag 'Cancel', class: 'btn', name: 'cancel'
-
+    = submit_tag 'Reset', type: :reset, class: "btn btn-danger"
