@@ -15,13 +15,13 @@ form a.btn { vertical-align: middle; }
 .navbar-search { margin-top: 4px; }
 input[type="image"], input[type="checkbox"], input[type="radio"] { margin: 6px 6px; }
 .controls > .radio:first-child, .controls > .checkbox:first-child { padding-top: 6px;}
-.form-actions { background-color: transparent;}
 [class^="icon-"], [class*=" icon-"] { width: 18px; vertical-align: initial; background-image: image_url("glyphicons-halfings.png"); }
 .icon-white { background-image: image_url("glyphicons-halfings-white.png"); }
 
 body {
   background: image_url('redtrolly.jpg') no-repeat center center fixed;
   background-size: cover;
+  .form-actions { background-color: transparent;}
 
   .navbar-inner {
     background-color: #DA4F49;
