@@ -39,7 +39,12 @@ class AccountsController < ApplicationController
   end
 
   def payment
-    @account = current_user
+    if current_account.stripe_token.present?
+      flash[:notice] = "You've already entered your card information."
+      redirect_to courses_path
+    else
+      @account = current_user
+    end
   end
 
   def alumni
