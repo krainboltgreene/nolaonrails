@@ -8,7 +8,7 @@ body.pages {
     article {
       background-color: rgba(250,250,250, 0.5);
       margin-top: 0px;
-
+      h1, h2, h3, p, ul, ol { padding: 0em; }
       .page-header { border-bottom: none; }
       .title {
         text-align: center;

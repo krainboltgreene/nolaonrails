@@ -46,6 +46,6 @@ body {
   background: image_url('redtrolly.jpg') no-repeat center center fixed;
   background-size: cover;
   article { background-color: white; margin-top: 50px; }
-  .page-header { h1, h2, h3 { padding: 1em; } }
+  article { h1, h2, h3, p, ul, ol { padding: 1em; } }
 }
 
