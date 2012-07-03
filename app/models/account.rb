@@ -1,6 +1,8 @@
 class Account < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  has_and_belongs_to_many :courses
+
   attr_accessor :terms
   attr_accessor :password, :password_confirmation
   attr_accessor :card_number, :card_cvc, :card_expiration

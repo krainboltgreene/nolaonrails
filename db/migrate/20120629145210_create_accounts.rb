@@ -32,8 +32,6 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :uid, default: nil
       t.string :provider, default: nil
 
-      t.belongs_to :course
-
       t.timestamps
     end
 
@@ -43,6 +41,5 @@ class CreateAccounts < ActiveRecord::Migration
     add_index :accounts, :reset_password_token, unique: true
     add_index :accounts, :remember_me_token, unique: true
     add_index :accounts, :unlock_token, unique: true
-    add_index :accounts, :course_id, unique: true
   end
 end

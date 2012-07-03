@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120702191540) do
+ActiveRecord::Schema.define(:version => 20120703172332) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -37,18 +37,23 @@ ActiveRecord::Schema.define(:version => 20120702191540) do
     t.integer  "stripe_plan",                     :default => 0
     t.string   "uid"
     t.string   "provider"
-    t.integer  "course_id"
     t.datetime "created_at",                                     :null => false
     t.datetime "updated_at",                                     :null => false
   end
 
   add_index "accounts", ["activation_token"], :name => "index_accounts_on_activation_token", :unique => true
-  add_index "accounts", ["course_id"], :name => "index_accounts_on_course_id", :unique => true
   add_index "accounts", ["email"], :name => "index_accounts_on_email", :unique => true
   add_index "accounts", ["name"], :name => "index_accounts_on_name"
   add_index "accounts", ["remember_me_token"], :name => "index_accounts_on_remember_me_token", :unique => true
   add_index "accounts", ["reset_password_token"], :name => "index_accounts_on_reset_password_token", :unique => true
   add_index "accounts", ["unlock_token"], :name => "index_accounts_on_unlock_token", :unique => true
+
+  create_table "accounts_courses", :id => false, :force => true do |t|
+    t.integer "account_id"
+    t.integer "course_id"
+  end
+
+  add_index "accounts_courses", ["account_id", "course_id"], :name => "index_accounts_courses_on_account_id_and_course_id"
 
   create_table "courses", :force => true do |t|
     t.string   "name"

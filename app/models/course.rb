@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  has_many :students, class_name: "account"
+  has_and_belongs_to_many :students, class_name: "account"
 
   attr_accessible :body
   attr_accessible :name
