@@ -20,6 +20,7 @@ gem 'redcarpet', '2.1.1'
 # gem 'squeel', '1.0.5'
 gem 'configatron', '2.9.1'
 gem 'stripe', '1.7.0'
+gem 'dalli', '2.1.0'
 
 gem 'omniauth-github', '1.0.1'
 gem 'omniauth-facebook', '1.2.0'
