@@ -9,6 +9,7 @@ body.pages {
       background-color: rgba(250,250,250, 0.5);
       margin-top: 0px;
 
+      .page-header { border-bottom: none; }
       .title {
         text-align: center;
         padding: 0em;
