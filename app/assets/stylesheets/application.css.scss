@@ -7,41 +7,45 @@
 // You're free to add application-wide styles to this file and they'll appear at the top of the
 // compiled file, but it's generally better to create a new file per style scope.
 //
-//= require bootstrap
+//= require twitter/bootstrap
+//= require fontawesome
 //= require_self
 //= require_tree .
 
-form a.btn { vertical-align: middle; }
-.navbar-search { margin-top: 4px; }
-input[type="image"], input[type="checkbox"], input[type="radio"] { margin: 6px 6px; }
-.controls > .radio:first-child, .controls > .checkbox:first-child { padding-top: 6px;}
-.form-actions { background-color: transparent;}
-[class^="icon-"], [class*=" icon-"] { width: 18px; vertical-align: initial; background-image: image_url("glyphicons-halfings.png"); }
-.icon-white { background-image: image_url("glyphicons-halfings-white.png"); }
+@import "http://fonts.googleapis.com/css?family=Oleo+Script";
+
+.navbar {
+  .navbar-inner {
+    background-color: white;
+    border-bottom: 1px #DA4F49 solid;
+    background-image: linear-gradient(top, white, whitesmoke);
+  }
+
+  .brand { color: #444; }
+
+  .nav > li > a {
+    color: #444;
+    &:hover { color: black; background-color: whitesmoke; }
+  }
+  .nav .active > a {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+    &:hover { color: whitesmoke; }
+  }
+  .divider-vertical {
+    background-color: #DA4F49;
+    border-right: none;
+  }
+}
+.form-actions { background-color: transparent; }
+.form-errors { padding-left: 160px; padding-right: 160px; }
+.form-controls { .hidden { display: none; } }
 
 body {
   background: image_url('redtrolly.jpg') no-repeat center center fixed;
   background-size: cover;
-
-  .navbar-inner {
-    background-color: #DA4F49;
-    background-image: linear-gradient(top, #DA4F49, #B34848);
-  }
-  .navbar {
-    margin-top: 5px;
-    .nav > li > a { color: whiteSmoke; }
-  }
-
-  & > article {
-    padding: 25px;
-    margin-top: 35px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 1px silver solid; }
-
-  & > footer {
-    background: black image_url('tile.png');
-    margin-top: 10em;
-    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
-    h3, p { color: rgba(255, 255, 255, .5); }
-  }
+  article { background-color: white; margin-top: 50px; }
+  .page-header { h1, h2, h3 { padding: 1em; } }
 }
+

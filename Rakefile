@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-NOR::Application.load_tasks
+NolaOnRails::Application.load_tasks

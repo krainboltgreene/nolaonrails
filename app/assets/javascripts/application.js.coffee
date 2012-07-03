@@ -12,12 +12,9 @@
 #
 #= require jquery
 #= require jquery_ujs
-#= require spine/lib/spine
-#= require spine/lib/manager
-#= require spine/lib/ajax
-#= require spine/lib/route
-#= require bootstrap
+#= require twitter/bootstrap
 #= require prefixfree
+#= require underscore
 #= require_tree .
 
 article = $('body > article')
@@ -25,10 +22,3 @@ article_height = article.height()
 window_height = $(window).height()
 if article_height < window_height
   article.css('margin-bottom', window_height - article_height)
-
-$('input.error').each ->
-  $(this).parent().parent().addClass 'error'
-
-$('[data-title][data-content]').popover { title: 'data-title', content: 'data-content' }
-
-$('.alert').alert()

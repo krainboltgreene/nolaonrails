@@ -1,53 +1,18 @@
-class Account
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  include BCrypt
-
+class Account < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  attr_accessor :terms
   attr_accessor :password, :password_confirmation
-  attr_accessible :email, :password, :name, :terms, :role, :token
+  attr_accessor :card_number, :card_cvc, :card_expiration
 
-  field :email
-  field :crypted_password
-  field :name
-  field :role, type: Integer, default: 1
-  field :terms, type: Boolean, default: false
-  field :token, type: String
-  field :payed, type: Boolean, default: false
+  attr_accessible :name
+  attr_accessible :email
+  attr_accessible :password, :password_confirmation
+  attr_accessible :terms
+  attr_accessible :stripe_token, :stripe_customer_token
 
-  index :email, unique: true
-
-  validates :email,
-    presence: true,
-    uniqueness: true,
-    format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,
-    length: 0..256
-  validates :password,
-    confirmation: true
-  validates :password,
-    presence: true,
-    length: 8..256,
-    on: :create
-  validates :name,
-    presence: true,
-    format: /[\w\s\-\,\.]/,
-    length: 4..256
-  validates :terms,
-    acceptance: { accept: true }
-  validates :role,
-    numericality: { only_integer: true },
-    inclusion: 0..3
-
-  before_create :convert_terms
-
-  def avatar
-    gravatar_id = Digest::MD5::hexdigest(email).downcase
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=32"
-  end
-
-  private
-    def convert_terms
-        self.terms = true if terms == "1" || terms == true
-    end
+  validates :email, uniqueness: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, length: 0..256
+  validates :password, confirmation: true, length: 8..1024, if: -> { new_record? || password.present? }
+  validates :name, format: /[\w\s\-\,\.]/, length: 4..1024
+  validates :terms, acceptance: true
 end

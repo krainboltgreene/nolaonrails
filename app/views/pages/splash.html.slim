@@ -1,63 +1,8 @@
-header.page-header
-  hgroup
-    h1#nola.title NOLA
-    h1#on.title ON
-    h1#rails.title RAILS
-
-section.schedule
-  hgroup
-    h2#days TUE <small>and</small> WED <small>and</small> THU <small>1h15m</small>
-    h2#times 5:30 <small>to</small> 6:45 <small>PM</small>
-    h2#dates Feb.28 <small>through</small> Apr.10 <small>6w</small>
-
-br
-
-section.location
-  header
-    h2#where
-      ' LOCATION
-      br
-      small The 4th Floor Rear Conference Room @ The IP Building
-  iframe width="100%" height="650" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Launch+Pad+643+Magazine+St,+New+Orleans,+LA+70130&amp;aq=&amp;sll=29.947089,-90.069169&amp;sspn=0.008023,0.016469&amp;g=643+Magazine+St,+New+Orleans,+LA+70130&amp;ie=UTF8&amp;hq=Launch+Pad&amp;hnear=643+Magazine+St,+New+Orleans,+Louisiana+70130&amp;ll=29.947093,-90.069164&amp;spn=0.002006,0.004117&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=3774553948737820622&amp;output=embed"
-
-br
-
-section.signup#mc_embed_signup style="text-align: center;"
-  form.form-inline.validate#mc-embedded-subscribe-form action="http://heroku.us2.list-manage.com/subscribe/post?u=2659100f5014c16e6b9ba2742&amp;id=09c99dfb22" method="post" name="mc-embedded-subscribe-form" target="_blank"
-    input#mce-EMAIL.span3 type="email" name="EMAIL" placeholder="johnpublic@email.com" required=true
-    '
-    button#mc-embedded-subscribe.btn.btn-primary name="subscribe" Newsletter Signup
-    '
-    a.btn.btn-success href="/signup" Register Here
-
-
-section.pitch
-  .row
-    section#learn.span4
-      header
-        h3 Learn The Essentials
-      p
-        | In this 6 week class I'll be teaching you all you need to know in order
-          to write your own Rails applications. I'll give you an introduction to
-          the MVC framework, tools that make it all easier, best practices, and
-          development patterns. <strong>No prior programming experience
-          required</strong>.
-
-    section#build.span4
-      header
-        h3 Build A Career
-      p
-        | With Ruby & Rails skills under your belt you'll be able to take on the
-          toughest of contract work. You'll make yourself a target for <strong>high
-          paying jobs</strong>. You'll even find you look at problems differently.
-          With the growing community of Rails developers in New Orleans you'll
-          find yourself among good company.
-
-    section#launch.span4
-      header
-        h3 Launch Your Dreams
-      p
-        | The Rails web framework is a gateway to further software development
-          opportunities. With it you can bootstrap your own ideas from prototypes
-          to functional application. While making the Next Facebook or Twitter
-          might not be the best plan, you'll have the tools to find that out.
+== render partial: "signin"
+== render partial: "page-header"
+== render partial: "schedule"
+== render partial: "mailchimp-signup"
+== render partial: "location"
+== render partial: "opening-day-alert"
+== render partial: "pitches"
+== render partial: "register"

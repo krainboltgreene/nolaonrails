@@ -1,15 +1,13 @@
 doctype html
 html
   head
-    = render partial: 'metadata'
+    == render partial: 'metadata'
     = stylesheet_link_tag 'application', media: 'all'
-    link href='http://fonts.googleapis.com/css?family=Vast+Shadow' rel='stylesheet' type='text/css'
-    - if controller.controller_name == "accounts" && controller.action_name == "edit"
-      script type="text/javascript" src="https://js.stripe.com/v1/"
-  body class=controller.controller_name id=controller.action_name
-    = render partial: 'header' if view_has_header?
-    = render partial: 'notifications' if notice.present?
-    article.container == yield
-    = render partial: 'footer' if view_has_footer?
-  = render partial: 'analytics'
+    script type="text/javascript" src="https://js.stripe.com/v1/"
+  body class=controller_name id=action_name
+    == render partial: 'header' if view_has_header?
+    article.main.container
+      == yield
+    == render partial: 'footer' if view_has_header?
+  == render partial: 'analytics'
   = javascript_include_tag 'application'

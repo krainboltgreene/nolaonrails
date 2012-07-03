@@ -1,21 +1,4 @@
-class CourseDecorator < ApplicationDecorator
+class CourseDecorator < Draper::Base
   decorates :course
-
-
-  def slide
-    resource.slide
-  end
-
-  def source
-    resource.source
-  end
-
-  def video
-    resource.video
-  end
-
-  def audio
-    resource.audio
-  end
-
+  decorates_association :accounts
 end

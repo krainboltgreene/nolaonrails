@@ -1,36 +1,26 @@
 class PagesController < ApplicationController
-  before_filter -> { @header = false }
-
-  caches_action :splash
+  skip_before_filter :require_login
+  skip_before_filter :require_header
 
   def splash
+    @account = Account.new
   end
 
   def about
-    @title = "About"
   end
 
-  def policy
-    @title = "Payment & Privacy Policy"
+  def contact
+  end
+
+  def prices
+  end
+
+  def policies
+  end
+
+  def alumni
   end
 
   def terms
-    @title = "Terms Of Use & Conditions"
-  end
-
-  def pricing
-    @title = "Seat Pricing"
-  end
-
-  def support
-    @title = "Contact & Support"
-  end
-
-  def sponsors
-    @title = "Sponsors & Contributors"
-  end
-
-  def syllabus
-    @title = "Class Syllabus"
   end
 end

@@ -1,0 +1,24 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      a.btn.btn-navbar data-toggle="collapse" data-target=".nav-collapse"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to configatron.app.name, root_path, class: "brand"
+      .nav-collapse
+        ul class="nav"
+          li.divider-vertical
+          = nav_item "Alumni", alumni_accounts_path
+          - if logged_in?
+            li.divider-vertical
+            = nav_item "My Courses", account_courses_path(current_user)
+            li.divider-vertical
+            = nav_item "All Courses", courses_path
+
+        ul class="nav pull-right"
+          - if logged_in?
+            = nav_item "Sign Out", ""
+          - else
+            = nav_item "Sign Up", new_account_path
+            = nav_item "Sign In", new_session_path

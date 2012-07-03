@@ -1,4 +1,4 @@
-NOR::Application.configure do
+NolaOnRails::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -25,7 +25,7 @@ NOR::Application.configure do
 
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -42,11 +42,14 @@ NOR::Application.configure do
   # Use a different cache store in production
   config.cache_store = :dalli_store
 
+  # Set the default url host for ActionMailer
+  config.action_mailer.default_url_options = { host: 'www.nolaonrails.com' }
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( modernizr.js jquery/mobile.js jquery/mobile.css )
+  config.assets.precompile += %w[ modernizr.js jquery/mobile.js jquery/mobile.css ]
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -60,4 +63,8 @@ NOR::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # Log the query plan for queries taking more than this (works
+  # with SQLite, MySQL, and PostgreSQL)
+  # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
