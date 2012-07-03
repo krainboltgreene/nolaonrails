@@ -1,2 +1,5 @@
-section#notice
-  p = notice if notice
+section#notifications
+  .container
+    .alert.alert-info
+      = link_to "x", "#", class: "close", data: { dismiss: "alert" }
+      = notice if notice
