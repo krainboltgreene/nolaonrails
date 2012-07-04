@@ -1,0 +1,22 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.courses {
+  &#index {
+    .courses {
+      margin-left: auto;
+      margin-right: auto;
+      .course {
+        .name { text-align: center; margin-top: 5px; }
+        th { text-align: right; }
+        td, th { border: none; }
+      }
+    }
+  }
+
+  &#show {
+    .details th { text-align: right; }
+    .image { text-align: center; }
+  }
+}
