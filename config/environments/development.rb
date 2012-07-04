@@ -20,7 +20,7 @@ NolaOnRails::Application.configure do
   config.action_mailer.delivery_method = :email_spy
 
   # Set the default url host for ActionMailer
-  config.action_mailer.default_url_options = { host: 'nolaonrails.dev' }
+  config.action_mailer.default_url_options = { host: 'localhost:3001' }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -40,7 +40,4 @@ NolaOnRails::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
-  # Force Slim to use the pretty-print option
-  Slim::Engine.set_default_options pretty: true
 end
