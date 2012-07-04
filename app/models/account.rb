@@ -3,6 +3,8 @@ class Account < ActiveRecord::Base
 
   has_and_belongs_to_many :courses
 
+  mount_uploader :avatar, AvatarUploader
+
   attr_accessor :terms
   attr_accessor :password, :password_confirmation
   attr_accessor :card_number, :card_cvc, :card_expiration
