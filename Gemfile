@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'rails', '3.2.6'
-gem 'activeadmin', git: 'git://github.com/appscape-forks/active_admin.git'
 
 gem 'unicorn', '4.3.1'
 

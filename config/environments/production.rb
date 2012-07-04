@@ -9,7 +9,8 @@ NolaOnRails::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
+  config.static_cache_control = "public, max-age=31536000"
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -20,12 +21,18 @@ NolaOnRails::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Set the asset host to a remote url
+  config.action_controller.asset_host = "https://#{ENV['S3_ASSETS_BUCKET']}-production.s3.amazonaws.com"
+
+  # Set the mailer host to a remote url
+  config.action_mailer.asset_host = "https://#{ENV['S3_ASSETS_BUCKET']}-production.s3.amazonaws.com"
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -55,7 +62,7 @@ NolaOnRails::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # Enable threaded mode
-  # config.threadsafe!
+  config.threadsafe!
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)

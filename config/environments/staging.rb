@@ -20,6 +20,11 @@ NolaOnRails::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Set the asset host to a remote url
+  config.action_controller.asset_host = "https://#{ENV['S3_ASSETS_BUCKET']}-staging.s3.amazonaws.com"
+
+  # Set the mailer host to a remote url
+  config.action_mailer.asset_host = "https://#{ENV['S3_ASSETS_BUCKET']}-staging.s3.amazonaws.com"
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
