@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
     @courses = if params[:account_id]
       current_account.courses
     else
-      Course.all
+      CourseDecorator.decorate Course.all
     end
   end
 
