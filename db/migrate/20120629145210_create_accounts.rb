@@ -38,7 +38,7 @@ class CreateAccounts < ActiveRecord::Migration
     end
 
     add_index :accounts, :name
-    add_index :accounts, :email, unique: true
+    add_index :accounts, :email
     add_index :accounts, :activation_token, unique: true
     add_index :accounts, :reset_password_token, unique: true
     add_index :accounts, :remember_me_token, unique: true
