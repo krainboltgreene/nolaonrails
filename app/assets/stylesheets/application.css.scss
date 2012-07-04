@@ -44,10 +44,21 @@
 .form-errors { padding-left: 160px; padding-right: 160px; }
 .form-controls { .hidden { display: none; } }
 
+.centered-thumbnails {
+  text-align: center;
+  li {
+    float: none;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 1em;
+  }
+}
+
 body {
   background: image_url('redtrolly.jpg') no-repeat center center fixed;
   background-size: cover;
   article { background-color: white; margin-top: 50px; }
-  article { h1, h2, h3, p, ul, ol { padding: 1em; } }
+  article { h1, h2, h3, p, ul, ol { padding: 0.7em; } }
 }
 
