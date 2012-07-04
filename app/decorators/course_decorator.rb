@@ -18,4 +18,11 @@ class CourseDecorator < Draper::Base
     end
   end
 
+  def student_avatars
+    if enrollments.any?
+
+    else
+      "---"
+    end
+  end
 end
