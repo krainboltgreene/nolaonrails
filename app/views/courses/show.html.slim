@@ -21,8 +21,8 @@
         = link_to @course.teacher.name, account_path(@course.teacher)
     tr
       th Students (Max 14)
-      - "@course.student_limit"
-      td @course.students.map(&:avatar).map(&:inline)
+      - "@course.enrollment_limit"
+      td = @course.student_avatars
 .image.pull-right
   = image_tag @course.image
 h2 Course Description
