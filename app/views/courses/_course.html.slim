@@ -2,7 +2,7 @@ li.course.thumbnail
   = link_to course_path(course) do
     = image_tag course.image.thumbnail
 
-    h4.name = course.name
+    h4.name = truncate course.name
   hr
   table.details.table.table-condensed
     tr
