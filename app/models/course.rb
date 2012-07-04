@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  has_and_belongs_to_many :students, class_name: "account"
+  has_and_belongs_to_many :enrollments, join_table: "enrollments", class_name: "Account"
 
   mount_uploader :image, ImageUploader
 
