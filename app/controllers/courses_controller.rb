@@ -8,6 +8,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find_by_id params[:id]
+    @_course = Course.find_by_id params[:id]
+    @course = CourseDecorator.new @_course
   end
 end
