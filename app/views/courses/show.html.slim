@@ -6,7 +6,8 @@
       th Price
       td
         = number_to_currency @course.price
-        = link_to "Enrole Now", purchase_account_course_path(current_user, @course)
+        '
+        = link_to "Enrole Now", purchase_course_path(@course)
     tr
       th Start Date
       td = @course.start_at_date

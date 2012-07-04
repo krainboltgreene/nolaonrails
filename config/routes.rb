@@ -8,6 +8,8 @@ NolaOnRails::Application.routes.draw do
   end
 
   resources :courses do
+    get "purchase", on: :member
+
     resources :session do
       resources :videos, only: [:index, :show, :create, :update, :destroy]
       resources :presentations, only: [:index, :show, :create, :update, :destroy]
