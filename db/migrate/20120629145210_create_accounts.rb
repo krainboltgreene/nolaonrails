@@ -32,6 +32,8 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :uid, default: nil
       t.string :provider, default: nil
 
+      t.string :avatar, default: nil
+
       t.timestamps
     end
 

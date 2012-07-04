@@ -4,6 +4,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :name
       t.text :body
       t.integer :price
+      t.string :image, default: nil
       t.belongs_to :account
 
       t.timestamps
