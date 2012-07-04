@@ -9,10 +9,10 @@
         = link_to "Enrole Now", purchase_account_course_path(current_user, @course)
     tr
       th Start Date
-      td @course.sessions.start_at_date
+      td = @course.start_at_date
     tr
       th End Date
-      td @course.sessions.end_at_date
+      td = @course.end_at_date
     tr
       th Teacher
       td
