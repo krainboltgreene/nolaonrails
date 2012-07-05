@@ -16,44 +16,9 @@
 
 @import "http://fonts.googleapis.com/css?family=Oleo+Script";
 
-.navbar {
-  .navbar-inner {
-    background-color: white;
-    border-bottom: 1px #DA4F49 solid;
-    background-image: linear-gradient(top, white, whitesmoke);
-  }
-
-  .brand { color: #444; }
-
-  .nav > li > a {
-    color: #444;
-    &:hover { color: black; background-color: whitesmoke; }
-  }
-  .nav .active > a {
-    color: black;
-    background-color: transparent;
-    text-decoration: underline;
-    &:hover { color: whitesmoke; }
-  }
-  .divider-vertical {
-    background-color: #DA4F49;
-    border-right: none;
-  }
-}
 .form-actions { background-color: transparent; }
 .form-errors { padding-left: 160px; padding-right: 160px; }
 .form-controls { .hidden { display: none; } }
-
-.centered-thumbnails {
-  text-align: center;
-  li {
-    float: none;
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    margin: 1em;
-  }
-}
 
 body {
   background: image_url('redtrolly.jpg') no-repeat center center fixed;
