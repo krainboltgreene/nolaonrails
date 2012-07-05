@@ -8,7 +8,7 @@
 
 FactoryGirl.define do
   factory :course do
-    name { Forgery(:lorem_ipsum).words(1..4) }
+    name { Forgery(:lorem_ipsum).words(5, random: true) }
     body { Forgery(:lorem_ipsum).paragraphs }
     price { Forgery(:monetary).money min: 25, max: 10000 }
   end
