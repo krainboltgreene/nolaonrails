@@ -8,15 +8,17 @@ body.courses {
       margin-left: auto;
       margin-right: auto;
       .course {
+        .image { text-align: center; }
         .name { text-align: center; margin-top: 5px; }
         th { text-align: right; }
         td, th { border: none; }
+        .enrole { text-align: center; }
       }
     }
   }
 
   &#show {
-    .details th { text-align: right; }
     .image { text-align: center; }
+    .details th { text-align: right; }
   }
 }
