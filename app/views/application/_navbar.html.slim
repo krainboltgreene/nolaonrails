@@ -14,7 +14,9 @@
             li.divider-vertical
             = nav_item "My Courses", account_courses_path(current_user)
             li.divider-vertical
-            = nav_item "All Courses", courses_path
+            = nav_item "Courses", courses_path
+            li.divider-vertical
+            = nav_item "Teach", new_course_path
 
         ul class="nav pull-right"
           - if logged_in?
