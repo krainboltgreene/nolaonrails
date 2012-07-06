@@ -55,11 +55,13 @@ ActiveRecord::Schema.define(:version => 20120704211054) do
     t.integer  "price"
     t.string   "image"
     t.integer  "account_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "courses", ["account_id"], :name => "index_courses_on_account_id"
+  add_index "courses", ["location_id"], :name => "index_courses_on_location_id"
   add_index "courses", ["name"], :name => "index_courses_on_name"
 
   create_table "enrollments", :id => false, :force => true do |t|
@@ -70,17 +72,19 @@ ActiveRecord::Schema.define(:version => 20120704211054) do
   add_index "enrollments", ["account_id"], :name => "index_enrollments_on_account_id"
   add_index "enrollments", ["course_id"], :name => "index_enrollments_on_course_id"
 
-  create_table "sessions", :force => true do |t|
+  create_table "meets", :force => true do |t|
     t.datetime "start_at"
     t.datetime "end_at"
     t.string   "name"
     t.text     "body"
     t.integer  "course_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  add_index "sessions", ["course_id"], :name => "index_sessions_on_course_id"
-  add_index "sessions", ["name"], :name => "index_sessions_on_name"
+  add_index "meets", ["course_id"], :name => "index_meets_on_course_id"
+  add_index "meets", ["location_id"], :name => "index_meets_on_location_id"
+  add_index "meets", ["name"], :name => "index_meets_on_name"
 
 end
