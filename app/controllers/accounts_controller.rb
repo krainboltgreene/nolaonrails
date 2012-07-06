@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
     if @account.valid?
       @account.save
       auto_login @account
-      redirect_to payment_account_path current_user
+      redirect_to card_account_path current_user
     else
       log_errors
       render :new
@@ -38,7 +38,7 @@ class AccountsController < ApplicationController
     end
   end
 
-  def payment
+  def card
     if current_account.stripe_token.present?
       flash[:notice] = "You've already entered your card information."
       redirect_to courses_path

@@ -1,0 +1,8 @@
+== page_header "Credit Card Form"
+
+- unless @account.stripe_token.present?
+  = simple_form_for @account, html: { class: "form-horizontal" } do |form|
+    == render partial: "card-form", locals: { form: form }
+- else
+  .form-errors
+    .alert.alert-success You've already saved your card information.

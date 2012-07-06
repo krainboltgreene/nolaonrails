@@ -2,7 +2,7 @@ NolaOnRails::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :accounts do
-    get "payment", on: :member
+    get "card", on: :member
     get "alumni", on: :collection
     resources :courses, only: [:index]
   end
