@@ -10,7 +10,7 @@ NolaOnRails::Application.routes.draw do
   resources :courses do
     get "purchase", on: :member
 
-    resources :session do
+    resources :meets do
       resources :videos, only: [:index, :show, :create, :update, :destroy]
       resources :presentations, only: [:index, :show, :create, :update, :destroy]
       resources :samples, only: [:index, :show, :create, :update, :destroy]
@@ -21,7 +21,7 @@ NolaOnRails::Application.routes.draw do
   get 'about' => "pages#about"
   get 'contact' => "pages#contact"
   get 'prices' => "pages#prices"
-  get 'alumni' => "pages#alumni"
+  get 'alumni' => "accounts#alumni"
   get 'terms' => "pages#terms"
   get 'policies' => "pages#policies"
 
