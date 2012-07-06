@@ -1,9 +1,10 @@
 class CourseDecorator < Draper::Base
   decorates :course
   decorates_association :accounts
+  decorates_association :meets
 
   def start_at_date
-    if sessions.any?
+    if meets.any?
 
     else
       "---"
@@ -11,7 +12,7 @@ class CourseDecorator < Draper::Base
   end
 
   def end_at_date
-    if sessions.any?
+    if meets.any?
 
     else
       "---"
