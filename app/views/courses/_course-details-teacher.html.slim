@@ -1,0 +1,5 @@
+tr
+  th Teacher
+  td
+    = link_to image_tag(@course.teacher.avatar.inline), account_path(@course.teacher)
+    = link_to @course.teacher.name, account_path(@course.teacher)

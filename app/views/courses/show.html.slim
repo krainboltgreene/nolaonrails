@@ -1,30 +1,4 @@
-== page_header raw "#{@course.name} <small>Course Details</small>"
-
-.details
-  table.table.table-striped
-    tr
-      th Price
-      td
-        = number_to_currency @course.price
-        '
-        = link_to "Enrole Now", purchase_course_path(@course)
-    tr
-      th Start Date
-      td = @course.start_at_date
-    tr
-      th End Date
-      td = @course.end_at_date
-    tr
-      th Teacher
-      td
-        = link_to image_tag(@course.teacher.avatar.inline), account_path(@course.teacher)
-        = link_to @course.teacher.name, account_path(@course.teacher)
-    tr
-      th Students (Max 14)
-      - "@course.enrollment_limit"
-      td = @course.student_avatars
-.image.pull-right
-  = image_tag @course.image
-h2 Course Description
-p.body
-  = @course.body
+== page_header raw "#{@course.name} <small>Class Details</small>"
+== render partial: 'course-details'
+== render partial: 'course-image'
+== render partial: 'course-description'
