@@ -12,6 +12,11 @@ class CoursesController < ApplicationController
     @course = CourseDecorator.new @_course
   end
 
+  def new
+    @_course = Course.new
+    @course = CourseDecorator.new @_course
+  end
+
   def purchase
     @_course = Course.find_by_id params[:id]
     @course = CourseDecorator.new @_course
