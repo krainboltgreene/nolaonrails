@@ -11,4 +11,23 @@ module CoursesHelper
       """
     end
   end
+
+  def body_course_form_input_options
+    {
+      as: :text,
+      input_html: {
+        class: "span6",
+        rows: 8
+      }
+    }
+  end
+
+  def price_course_form_input_options
+    {
+      placeholder: "500",
+      input_html: {
+        class: "span2"
+      }
+    }
+  end
 end
