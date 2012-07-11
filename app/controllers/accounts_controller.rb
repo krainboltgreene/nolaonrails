@@ -50,7 +50,6 @@ class AccountsController < ApplicationController
 
   def card
     if current_account.stripe_token.present?
-      flash[:notice] = "You've already entered your card information."
       redirect_to courses_path
     else
       @account = current_account
