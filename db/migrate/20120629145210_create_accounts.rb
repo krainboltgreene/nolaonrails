@@ -27,6 +27,7 @@ class CreateAccounts < ActiveRecord::Migration
 
       t.string :stripe_token, default: nil
       t.string :stripe_customer_token, default: nil
+      t.string :stripe_charges, default: nil
       t.integer :stripe_plan, default: 0
 
       t.string :uid, default: nil
