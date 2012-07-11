@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @_course = Course.new
+    @_course = current_user.courses.build
     @course = CourseDecorator.new @_course
   end
 
