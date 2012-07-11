@@ -17,6 +17,17 @@ class CoursesController < ApplicationController
     @course = CourseDecorator.new @_course
   end
 
+  def create
+    @_course = current_user.courses.build params[:course]
+    @course = CourseDecorator.new @_course
+    if @_course.valid?
+      @_course.save
+      redirect_to account_courses_path current_user
+    else
+      render :new
+    end
+  end
+
   def purchase
     @_course = Course.find_by_id params[:id]
     @course = CourseDecorator.new @_course
