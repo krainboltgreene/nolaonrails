@@ -1,5 +1,7 @@
 == page_header "Create A Class"
 
 = simple_form_for @course, html: { class: "form-horizontal" } do |form|
-  == render partial: 'form', locals: { form: form }
-  = form.submit
+  .form-controls
+    == render partial: 'form', locals: { form: form }
+  .form-actions
+    = form.submit class: "btn btn-primary"
