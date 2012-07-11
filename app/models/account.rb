@@ -17,7 +17,7 @@ class Account < ActiveRecord::Base
   attr_accessible :avatar
   attr_accessible :password, :password_confirmation
   attr_accessible :terms
-  attr_accessible :stripe_token, :stripe_customer_token
+  attr_accessible :stripe_token, :stripe_customer_token, :stripe_charges, :stripe_plan
 
   validates :email, uniqueness: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, length: 0..256
   validates :password, confirmation: true, length: 8..1024, if: -> { new_record? || password.present? }
