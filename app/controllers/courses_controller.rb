@@ -36,7 +36,18 @@ class CoursesController < ApplicationController
       currency: "usd",
       customer: current_account.stripe_customer_token
     }
-
-    Stripe::Charge.create charge_attributes
+    logger.info "Charging the current account:"
+    logger.info "  account: #{current_account.to_yaml}"
+    logger.info "  charge: #{charge_attributes.to_yaml}"
+    charge = Stripe::Charge.create charge_attributes
+    logger.info "  result: #{charge.to_json}"
+    if charge.paid?
+      current_user.stripe_charges << charge.id
+      current_user.save
+      redirect_to account_courses_path current_user
+    else
+      flash[:error] = "Your card charge didn't work. Check your card information please."
+      render :show
+    end
   end
 end
