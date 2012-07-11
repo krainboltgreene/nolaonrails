@@ -38,7 +38,11 @@ body.pages {
         .map { width: 940px; height: 325px; }
       }
 
-      .pitches .pitch {
+      #register {
+        text-align: center;
+        padding: 1em;
+      }
+
       #pitches .pitch {
         background: white;
         border-radius: 3px;
