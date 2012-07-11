@@ -3,12 +3,14 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
+    @account = AccountDecorator.new @_account
   end
 
   def create
-    @account = Account.new params[:account]
-    if @account.valid?
-      @account.save
+    @_account = Account.new params[:account]
+    @account = AccountDecorator.new @_account
+    if @_account.valid?
+      @_account.save
       auto_login @account
       redirect_to card_account_path current_user
     else
@@ -18,7 +20,7 @@ class AccountsController < ApplicationController
   end
 
   def update
-    @account = current_user
+    @account = current_account
     respond_to do |format|
       if params[:account][:stripe_token]
         token = params[:account][:stripe_token]
@@ -43,7 +45,7 @@ class AccountsController < ApplicationController
       flash[:notice] = "You've already entered your card information."
       redirect_to courses_path
     else
-      @account = current_user
+      @account = current_account
     end
   end
 
