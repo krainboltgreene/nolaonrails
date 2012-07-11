@@ -1,14 +1,3 @@
-.modal.hide#register
-  .modal-header
-    = button_tag "×", class: "close", data: { dismiss: "modal" }
-    h3 Register Now
-  = simple_form_for @account, html: { class: "form-horizontal" } do |form|
-    .modal-body
-       = form.input :name
-       = form.input :email
-       = form.input :password
-       = form.input :password_confirmation, label: "Confirm Password"
-       = form.input :terms, as: :boolean, label: "I Accept The Terms"
-    .modal-footer.form-actions
-      = link_to "Close", "#", class: "btn btn-large", data: { dismiss: "modal" }
-      = form.submit "Register", class: "btn btn-primary btn-large"
+section#register
+  = link_to "Register Now", "#", class: "btn btn-primary btn-large", data: { toggle: "modal", target: "#register-modal"}
+  == render partial: "register-modal"

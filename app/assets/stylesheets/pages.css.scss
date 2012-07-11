@@ -18,7 +18,7 @@ body.pages {
         &#rails { font-size: 11rem; font-family: "Oleo Script", serif; letter-spacing: 0.1em; }
       }
 
-      .schedule {
+      #schedule {
         background-color: white;
         border-top: 1px #DA4F49 solid;
         border-bottom: 1px #DA4F49 solid;
@@ -29,7 +29,7 @@ body.pages {
         #dates { font-size: 4.25em; line-height: 1.5em; font-family: "Oleo Script", serif; }
       }
 
-      .location {
+      #location {
         background-color: white;
         border-top: 1px #DA4F49 solid;
         border-bottom: 1px #DA4F49 solid;
@@ -39,13 +39,14 @@ body.pages {
       }
 
       .pitches .pitch {
+      #pitches .pitch {
         background: white;
         border-radius: 3px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
         header, p { padding: 0px 1em; }
       }
 
-      .signup {
+      #signup {
         margin-top: 15px;
         margin-bottom: 15px;
         text-align: center;
