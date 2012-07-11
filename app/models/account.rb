@@ -12,6 +12,7 @@ class Account < ActiveRecord::Base
 
   attr_accessible :name
   attr_accessible :email
+  attr_accessible :avatar
   attr_accessible :password, :password_confirmation
   attr_accessible :terms
   attr_accessible :stripe_token, :stripe_customer_token

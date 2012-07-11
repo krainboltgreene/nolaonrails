@@ -10,4 +10,5 @@ class Course < ActiveRecord::Base
   attr_accessible :price
   attr_accessible :location
   attr_accessible :teacher
+  attr_accessible :image
 end
