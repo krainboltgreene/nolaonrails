@@ -9,6 +9,8 @@ gem 'unicorn', '4.3.1'
 gem 'pg', '0.14.0', group: [:production, :staging]
 gem 'sqlite3', '1.3.6', group: [:development, :test]
 
+gem 'newrelic_rpm', '3.4.0.1'
+
 gem 'draper', '0.14.0'
 gem 'carrierwave', '0.6.2'
 gem 'sorcery', '0.7.12'
