@@ -24,8 +24,16 @@ class AccountsController < ApplicationController
     respond_to do |format|
       if params[:account][:stripe_token]
         token = params[:account][:stripe_token]
-        stripe_attributes = { description: @account.name, email: @account.email, card: token}
-        customer = Stripe::Customer.create
+        customer_attributes = {
+          description: @account.name,
+          email: @account.email,
+          card: token
+        }
+        logger.info "Creating a Stripe customer with current account:"
+        logger.info "  account: #{current_account.to_json}"
+        logger.info "  customer: #{customer_attributes.to_json}"
+        customer = Stripe::Customer.create customer_attributes
+        logger.info "  return: #{customer.to_json}"
         @account.update_attribute :stripe_customer_token, customer.id
       end
 
