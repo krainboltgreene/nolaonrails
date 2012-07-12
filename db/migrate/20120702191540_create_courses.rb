@@ -1,9 +1,9 @@
 class CreateCourses < ActiveRecord::Migration
   def change
     create_table :courses do |t|
-      t.string :name
-      t.text :body
-      t.integer :price
+      t.string :name, default: nil
+      t.text :body, default: nil
+      t.integer :price, default: 0
       t.string :image, default: nil
       t.belongs_to :account
       t.belongs_to :location

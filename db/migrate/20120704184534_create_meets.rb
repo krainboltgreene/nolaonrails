@@ -3,8 +3,8 @@ class CreateMeets < ActiveRecord::Migration
     create_table :meets do |t|
       t.datetime :start_at
       t.datetime :end_at
-      t.string :name
-      t.text :body
+      t.string :name, default: nil
+      t.text :body, default: nil
       t.belongs_to :course
       t.belongs_to :location
 
