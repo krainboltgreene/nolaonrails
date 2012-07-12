@@ -20,13 +20,12 @@ class AccountsController < ApplicationController
   end
 
   def update
-    @account = current_account
     respond_to do |format|
       if params[:account][:stripe_token]
         token = params[:account][:stripe_token]
         customer_attributes = {
-          description: @account.name,
-          email: @account.email,
+          description: current_account.name,
+          email: current_account.email,
           card: token
         }
         logger.info "Creating a Stripe customer with current account:"
@@ -34,13 +33,14 @@ class AccountsController < ApplicationController
         logger.info "  customer: #{customer_attributes.to_json}"
         customer = Stripe::Customer.create customer_attributes
         logger.info "  return: #{customer.to_json}"
-        @account.update_attribute :stripe_customer_token, customer.id
+        current_account.update_attribute :stripe_customer_token, customer.id
       end
 
-      if @account.update_attributes(params[:account])
-        format.html { redirect_to edit_account_path(@account) }
+      if current_account.update_attributes(params[:account])
+        format.html { redirect_to edit_account_path(current_account) }
         format.json { head :ok }
       else
+        @account = current_account
         log_errors
         format.html { render :edit }
         format.json { head :conflict }
