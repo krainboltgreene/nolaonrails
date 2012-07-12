@@ -9,7 +9,7 @@
       .nav-collapse
         ul class="nav"
           - if logged_in?
-            = nav_item "My Classes", account_courses_path(current_user)
+            = nav_item "My Courses", account_courses_path(current_user)
             li.divider-vertical
             = nav_item "Find Courses", courses_path
             li.divider-vertical
