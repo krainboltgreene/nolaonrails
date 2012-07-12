@@ -10,8 +10,8 @@ $(".accounts#card form").submit (event) ->
   Stripe.createToken
     number: $(".accounts#card #account_card_number").val()
     cvc: $(".accounts#card #account_card_cvc").val()
-    exp_month: $(".accounts#card select.date").last().val()
-    exp_year: $(".accounts#card select.date").first().val()
+    exp_month: $(".accounts#card select.date").first().val()
+    exp_year: $(".accounts#card select.date").last().val()
   , (status, response) ->
     if status == 200
       url = $(".accounts#card .form-controls #account_path").val()
