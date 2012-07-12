@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_account
-    AccountDecorator.new current_user
+    AccountDecorator.new current_user if current_user
   end
 
   def require_card
