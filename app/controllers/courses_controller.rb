@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
     logger.info "  charge: #{charge_attributes.to_yaml}"
     charge = Stripe::Charge.create charge_attributes
     logger.info "  result: #{charge.to_json}"
-    if charge.paid?
+    if charge.paid
       current_user.stripe_charges << charge.id
       current_user.save
       redirect_to account_courses_path current_user
