@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_filter :require_login
+  skip_before_filter :require_card
   skip_before_filter :require_header
 
   def splash

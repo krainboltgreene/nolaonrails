@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create, :alumni]
+  skip_before_filter :require_card, only: [:new, :create, :update, :card]
 
   def new
     @account = Account.new
