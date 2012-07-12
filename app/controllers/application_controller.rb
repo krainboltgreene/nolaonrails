@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :require_header
-  before_filter -> { @footer = true }
   before_filter :require_login
-
+  before_filter :require_card
+  before_filter :require_header
+  before_filter :require_footer
 
   private
 
@@ -20,5 +20,9 @@ class ApplicationController < ActionController::Base
 
   def require_header
     @header = true
+  end
+
+  def require_footer
+    @footer = true
   end
 end
