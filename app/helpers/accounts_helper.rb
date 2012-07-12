@@ -20,7 +20,7 @@ module AccountsHelper
 
   def card_form_text
     """
-    We'll use your card only when you enrole in a course.
+    We'll use your card only when you enroll in a course.
     We don't store your card information on our servers.
     Your card information is sent securely to a payment processor.
     #{link_to "Read more details here.", controller: :pages, action: :policies}
