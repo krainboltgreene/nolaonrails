@@ -9,7 +9,7 @@ module PagesHelper
 
   def learn_essentials_text
     """
-    In this 6 week class I'll be teaching you all you need to know in order
+    In this 4 week course I'll be teaching you all you need to know in order
     to write your own Rails applications. I'll give you an introduction to
     the MVC framework, tools that make it all easier, best practices, and
     development patterns. <strong>No prior programming experience
@@ -19,7 +19,7 @@ module PagesHelper
 
   def build_a_career_text
     """
-    With this class you'll be able to make yourself a target for <strong>high
+    With this course you'll be able to make yourself a target for <strong>high
     paying jobs</strong>. With the growing community of Rails developers in
     New Orleans you'll find yourself among good company. These are the skills
     of a career in programming.
@@ -31,7 +31,7 @@ module PagesHelper
     The Rails web framework is a gateway to further software development
     opportunities. With it you can bootstrap your own ideas from prototypes
     to functional application. We'll give you the tools to launch your
-    dreams. This class will give you insight into the web.
+    dreams. This course will give you insight into the web.
     """
   end
 

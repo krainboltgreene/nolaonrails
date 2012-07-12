@@ -1,4 +1,5 @@
 module CoursesHelper
+
   def no_courses_text
     if params[:account_id]
       """
