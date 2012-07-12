@@ -12,4 +12,8 @@ li.course.thumbnail.span3
     tr
       th Opening
       td.field = course.start_at_date
-  .enroll = link_to "Enroll Now", purchase_course_path(course), class: "btn btn-success"
+  .enroll
+    - if current_account.is_teacher? course
+      = success_button_link_to "Enroll Now", purchase_course_path(course)
+    - else
+      = primary_button_link_to "View", course_path(course)
