@@ -81,4 +81,12 @@ module ApplicationHelper
   def view_has_footer?
     @footer
   end
+
+  def primary_button_link_to(text, url = nil)
+    link_to text, url, class: "btn btn-primary"
+  end
+
+  def success_button_link_to(text, url = nil)
+    link_to text, url, class: "btn btn-success"
+  end
 end
