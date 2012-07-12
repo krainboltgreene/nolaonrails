@@ -6,6 +6,7 @@ module AccountsHelper
       end_year: Date.today.year + 12,
       discard_day: true,
       use_month_numbers: true,
+      order: [:month, :year],
       input_html: { class: 'span1' }
     }
   end
