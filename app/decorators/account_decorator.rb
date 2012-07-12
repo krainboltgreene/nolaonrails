@@ -3,6 +3,6 @@ class AccountDecorator < Draper::Base
   decorates_association :courses
 
   def is_teacher?(course)
-    self == course.teacher
+    self == course.account
   end
 end

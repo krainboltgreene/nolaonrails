@@ -3,7 +3,7 @@ class Account < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  serialize :stripe_charges
+  serialize :stripe_charges, Array
 
   has_and_belongs_to_many :enrollments, join_table: "enrollments", class_name: "Course"
   has_many :courses

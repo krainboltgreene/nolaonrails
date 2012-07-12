@@ -1,6 +1,6 @@
 class CourseDecorator < Draper::Base
   decorates :course
-  decorates_association :accounts
+  decorates_association :account
   decorates_association :meets
 
   def start_at_date
