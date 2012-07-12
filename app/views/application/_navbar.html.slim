@@ -17,7 +17,7 @@
 
         ul class="nav pull-right"
           - if logged_in?
-            = nav_item "Sign Out", ""
+            = nav_item "Sign Out", signout_path
           - else
-            = nav_item "Sign Up", new_account_path
-            = nav_item "Sign In", new_session_path
+            = nav_item "Sign Up", signup_path
+            = nav_item "Sign In", signin_path

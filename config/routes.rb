@@ -19,9 +19,9 @@ NolaOnRails::Application.routes.draw do
     end
   end
 
-  get 'signin' => "sessions#new"
-  get 'signout' => "sessions#destroy"
-  get 'signup' => "account#new"
+  get 'signin' => "sessions#new", as: :signin
+  get 'signout' => "sessions#destroy", as: :signout
+  get 'signup' => "account#new", as: :signup
 
   get 'about' => "pages#about"
   get 'contact' => "pages#contact"
