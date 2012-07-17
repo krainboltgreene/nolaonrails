@@ -1,15 +1,11 @@
 source 'https://rubygems.org'
-
 ruby '1.9.3'
 
 gem 'rails', '3.2.6'
-
 gem 'unicorn', '4.3.1'
 
 gem 'pg', '0.14.0', group: [:production, :staging]
 gem 'sqlite3', '1.3.6', group: [:development, :test]
-
-gem 'newrelic_rpm', '3.4.0.1'
 
 gem 'draper', '0.14.0'
 gem 'carrierwave', '0.6.2'
@@ -20,35 +16,38 @@ gem 'jquery-rails', '2.0.2'
 gem 'sendgrid-rails', '2.0.2'
 gem 'slim-rails', '1.0.3'
 gem 'redcarpet', '2.1.1'
-# gem 'squeel', '1.0.5'
 gem 'configatron', '2.9.1'
 gem 'stripe', '1.7.0'
 gem 'dalli', '2.1.0'
 
 gem 'omniauth-github', '1.0.1'
 gem 'omniauth-facebook', '1.2.0'
-gem 'omniauth-twitter', '0.0.12'
-gem 'omniauth-linkedin', '0.0.6'
+# gem 'omniauth-twitter', '0.0.12'
+# gem 'omniauth-linkedin', '0.0.6'
 gem 'bootstrap-sass-rails', '2.0.4.1'
 gem 'asset_sync', '0.4.2'
 gem 'rmagick', '2.13.1'
 
-gem 'factory_girl_rails', '3.5.0', group: [:development, :test]
-gem 'forgery', '0.5.0', group: [:development, :test]
+# gem 'factory_girl_rails', '3.5.0', group: [:development, :test]
+# gem 'forgery', '0.5.0', group: [:development, :test]
+
+group :production do
+  gem 'newrelic_rpm', '3.4.0.1'
+end
 
 group :development do
   gem 'foreman', '0.47.0'
   gem 'pry-rails', '0.1.6'
-  gem 'rspec-rails', '2.10.1'
+  # gem 'rspec-rails', '2.10.1'
   gem 'email_spy', '1.6.0'
   gem 'quiet_assets', '1.0.1'
   gem 'vendorer', '0.1.11'
+  # gem 'debugger'
 end
 
 group :assets do
-  # gem 'zurb-foundation', '3.0.0'
   gem 'sass-rails', '3.2.5'
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.6'
-  gem 'yui-compressor', '0.9.6'
+  # gem 'yui-compressor', '0.9.6'
 end
