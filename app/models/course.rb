@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  before_save :render_body
+  after_save :render_body
 
   attr_accessible :body
   attr_accessible :name
@@ -18,7 +18,7 @@ class Course < ActiveRecord::Base
   private
 
   def render_body
-    Rails.cache.write "entry[#{id}][body]", markdown_engine.render(body)
+    Rails.cache.write "course[#{id}][body]", markdown_engine.render(body)
   end
 
   def markdown_engine
