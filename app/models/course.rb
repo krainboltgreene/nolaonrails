@@ -5,6 +5,8 @@ class Course < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  before_save :render_body
+
   attr_accessible :body
   attr_accessible :name
   attr_accessible :price
@@ -12,4 +14,17 @@ class Course < ActiveRecord::Base
   attr_accessible :location
   attr_accessible :account
   attr_accessible :image
+
+  private
+
+  def render_body
+    Rails.cache.write "entry[#{id}][body]", markdown_engine.render(body)
+  end
+
+  def markdown_engine
+    engine_output = Redcarpet::Render::HTML
+    engine_options = { autolink: true }
+    Redcarpet::Markdown.new engine_output, engine_options
+  end
+
 end
