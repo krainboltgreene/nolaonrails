@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def require_card
     unless current_account.stripe_customer_token.present?
-      flash[:error] = "You need to enter your card details."
+      flash.now[:error] = "You need to enter your card details."
       redirect_to card_account_path current_account
     end
   end

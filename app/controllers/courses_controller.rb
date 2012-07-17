@@ -46,7 +46,7 @@ class CoursesController < ApplicationController
       current_user.save
       redirect_to account_courses_path current_user
     else
-      flash[:error] = "Your card charge didn't work. Check your card information please."
+      flash.now[:error] = "Your card charge didn't work. Check your card information please."
       render :show
     end
   end
