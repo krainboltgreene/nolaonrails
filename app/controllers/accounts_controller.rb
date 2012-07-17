@@ -57,9 +57,8 @@ class AccountsController < ApplicationController
     end
   end
 
-  def alumni
-    @_accounts = Course.all.map(&:alumni).flatten
-    @accounts = AccountDecorator.decorate @_accounts
+  def dashboard
+
   end
 
   private
