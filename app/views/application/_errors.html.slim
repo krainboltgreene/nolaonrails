@@ -1,0 +1,6 @@
+section#errors
+  .container
+    .alert.alert-error
+      = link_to "x", "#", class: "close", data: { dismiss: "alert" }
+      = flash[:error] if flash[:error]
+
