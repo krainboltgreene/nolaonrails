@@ -2,4 +2,5 @@ section#notifications
   .container
     .alert.alert-info
       = link_to "x", "#", class: "close", data: { dismiss: "alert" }
-      = notice if notice
+      = flash[:notice] if flash[:notice]
+
