@@ -23,4 +23,16 @@ class Account < ActiveRecord::Base
   validates :password, confirmation: true, length: 8..1024, if: -> { new_record? || password.present? }
   validates :name, format: /[\w\s\-\,\.]/, length: 4..1024
   validates :terms, acceptance: true
+
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.email = auth.info.email
+      # user.oauth_token = auth.credentials.token
+      # user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
+  end
 end

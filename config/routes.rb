@@ -22,6 +22,8 @@ NolaOnRails::Application.routes.draw do
   get 'signin' => "sessions#new", as: :signin
   get 'signout' => "sessions#destroy", as: :signout
   get 'signup' => "account#new", as: :signup
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
 
   get 'about' => "pages#about"
   get 'contact' => "pages#contact"

@@ -7,11 +7,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    email = params[:session][:email]
-    password = params[:session][:password]
-    remember_me = params[:session][:remember_me]
-    account = login email, password, remember_me
-    if account.present?
+    if env["omniauth.auth"]
+      auto_login Account.from_omniauth env["omniauth.auth"]
+    end
+    if current_user
       redirect_to dashboard_account_path(current_user)
     else
       flash.now[:error] = "Your password or username was incorrect. Please try again."
