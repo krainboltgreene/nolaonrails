@@ -10,10 +10,6 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :activation_token, default: nil
       t.datetime :activation_token_expires_at
 
-      t.string :reset_password_token, default: nil
-      t.datetime :reset_password_token_expires_at
-      t.datetime :reset_password_email_sent_at
-
       t.string :remember_me_token, default: nil
       t.datetime :remember_me_token_expires_at
 
@@ -41,7 +37,6 @@ class CreateAccounts < ActiveRecord::Migration
     add_index :accounts, :name
     add_index :accounts, :email
     add_index :accounts, :activation_token, unique: true
-    add_index :accounts, :reset_password_token, unique: true
     add_index :accounts, :remember_me_token, unique: true
     add_index :accounts, :unlock_token, unique: true
   end

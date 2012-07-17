@@ -4,7 +4,6 @@
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging, :external
 Rails.application.config.sorcery.submodules = [
   :activity_logging,
-  :reset_password,
   :remember_me,
   :session_timeout,
   :user_activation,
@@ -241,7 +240,7 @@ Rails.application.config.sorcery.configure do |config|
     # mailer class. Needed.
     # Default: `nil`
     #
-    user.reset_password_mailer = ResetPasswordMailer
+    # user.reset_password_mailer = ResetPasswordMailer
 
 
     # reset password email method on your mailer class.
