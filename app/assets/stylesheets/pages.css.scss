@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body.pages {
+  background: image_url('redtrolly.jpg') no-repeat center center fixed;
+  background-size: cover;
+
   &#splash {
 
     article {
