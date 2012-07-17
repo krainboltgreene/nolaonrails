@@ -1,9 +1,5 @@
 == page_header "Sign In"
-= simple_form_for :session, url: sessions_path, html: { class: 'form-horizontal' } do |form|
-  .form-controls
-    = form.input :email
-    = form.input :password
-    = form.input :remember_me, as: :boolean
-  .form-actions
-    = form.submit "Sign In", class: "btn btn-primary"
 
+p
+  = link_to "Login With Facebook", "/auth/facebook"
+  = link_to "Login With Github", "/auth/github"

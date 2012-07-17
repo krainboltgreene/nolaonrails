@@ -4,7 +4,7 @@ NolaOnRails::Application.routes.draw do
   resources :accounts do
     get "card", on: :member
     get "activation", on: :member
-    get "alumni", on: :collection
+    get "dashboard", on: :member
     resources :courses, only: [:index]
   end
   resources :courses do

@@ -1,8 +1,5 @@
-== page_header "Create An Account"
-= simple_form_for @account, html: { class: "form-horizontal" } do |form|
-  = form.error_notification
-  .form-controls
-    == render partial: "form", locals: { form: form }
-    = form.input :terms, as: :boolean, label: "I Accept The Terms"
-  .modal-footer.form-actions
-    = form.submit class: "btn btn-primary"
+== page_header "Registration Form"
+
+p
+  = link_to "Register With Facebook", "/auth/facebook"
+  = link_to "Register With Github", "/auth/github"

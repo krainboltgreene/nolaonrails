@@ -1,3 +1,4 @@
 section#register
-  = link_to "Register Now", "#", class: "btn btn-primary btn-large", data: { toggle: "modal", target: "#register-modal"}
-== render partial: "register-modal"
+  = link_to "Register With Facebook", "/auth/facebook", class: "btn btn-primary btn-large"
+  '
+  = link_to "Register With Github", "/auth/github", class: "btn btn-primary btn-large"
