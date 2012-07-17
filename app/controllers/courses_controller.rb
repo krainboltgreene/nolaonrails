@@ -33,6 +33,16 @@ class CoursesController < ApplicationController
     end
   end
 
+  def update
+    @_course = current_user.courses.find_by_id params[:id]
+    @course = CourseDecorator.new @_course
+    if @_course.update_attributes params[:course]
+      redirect_to account_courses_path current_user
+    else
+      render :edit
+    end
+  end
+
   def purchase
     @_course = Course.find_by_id params[:id]
     @course = CourseDecorator.new @_course
