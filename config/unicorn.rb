@@ -1,3 +1,5 @@
+require './config/variables' if File.exists? './config/variables.rb'
+
 worker_processes ENV["UNICORN_WORKERS"].to_i
 timeout ENV["UNICORN_TIMEOUT"].to_i
 preload_app true
