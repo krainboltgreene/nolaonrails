@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
   skip_before_filter :require_card, only: [:new, :create, :update, :card]
 
   def new
-    @account = Account.new
+    @_account = Account.new
     @account = AccountDecorator.new @_account
   end
 
