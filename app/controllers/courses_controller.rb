@@ -17,6 +17,11 @@ class CoursesController < ApplicationController
     @course = CourseDecorator.new @_course
   end
 
+  def edit
+    @_course = current_user.courses.find_by_id params[:id]
+    @course = CourseDecorator.new @_course
+  end
+
   def create
     @_course = current_user.courses.build params[:course]
     @course = CourseDecorator.new @_course
