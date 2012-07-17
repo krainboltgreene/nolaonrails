@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
       redirect_to dashboard_account_path(current_user)
     else
       flash.now[:error] = "Your password or username was incorrect. Please try again."
+      logger.info "User failed to log in"
       render :new
     end
   end
