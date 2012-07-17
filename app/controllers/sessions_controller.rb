@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
-  skip_before_filter :require_card, only: [:new, :create]
+  skip_before_filter :require_card, only: [:new, :create, :destroy]
 
   def new
     redirect_to account_courses_path current_account if logged_in?
