@@ -8,6 +8,7 @@ $(".accounts#card form").submit (event) ->
   $(".accounts#card .form-actions [type='submit']").attr "disabled", "disabled"
 
   Stripe.createToken
+    name: $(".accounts#card #account_name").val()
     number: $(".accounts#card #account_card_number").val()
     cvc: $(".accounts#card #account_card_cvc").val()
     exp_month: $(".accounts#card select.date").first().val()

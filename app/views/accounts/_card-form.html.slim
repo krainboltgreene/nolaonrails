@@ -5,6 +5,7 @@
 .form-controls
   .row
     .span7
+      = form.input :name, value: current_account.name
       = form.input :card_number, placeholder: '#### #### #### ####'
       = form.input :card_cvc, cvc_input_options
       = form.input :card_expiration, expiration_input_options
