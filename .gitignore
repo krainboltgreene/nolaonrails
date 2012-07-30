@@ -20,4 +20,4 @@
 /tmp
 
 # Ignore foreman details
-/config/variables.rb
+/.env
