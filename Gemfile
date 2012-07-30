@@ -47,7 +47,6 @@ group :development do
   gem 'email_spy', '1.6.0'
   gem 'quiet_assets', '1.0.1'
   gem 'vendorer', '0.1.11'
-  # gem 'rspec-rails', '2.10.1'
   # gem 'debugger'
 end
 
