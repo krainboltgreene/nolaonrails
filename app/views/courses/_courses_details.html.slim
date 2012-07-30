@@ -1,0 +1,12 @@
+section#details.row
+  .span12
+    == render partial: "courses_details_summary"
+  .span7
+    table.table.table-striped
+      == render partial: "courses_details_price"
+      == render partial: "courses_details_startdate"
+      == render partial: "courses_details_enddate"
+      == render partial: "courses_details_teacher"
+      == render partial: "courses_details_students"
+  .span5
+    == render partial: "courses_image"

@@ -1,0 +1,12 @@
+header
+  .avatar.pull-left = image_tag account.avatar
+  h3 = account.name
+ul.no-style
+  li
+    strong Name:
+    '
+    = account.name
+  li
+    strong Finished Courses:
+    '
+    = account.courses.select(&:finished).size
