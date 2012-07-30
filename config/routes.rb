@@ -7,6 +7,7 @@ NolaOnRails::Application.routes.draw do
     get "dashboard", on: :member
     resources :courses, only: [:index]
   end
+
   resources :courses do
     get "purchase", on: :member
 
