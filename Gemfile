@@ -15,6 +15,7 @@ gem 'slim-rails', '1.0.3'
 gem 'redcarpet', '2.1.1'
 gem 'jquery-rails', '2.0.2'
 gem 'stripe', '1.7.0'
+gem 'configatron', '2.9.1'
 
 gem 'omniauth-github', '1.0.1'
 gem 'omniauth-facebook', '1.2.0'
@@ -23,7 +24,6 @@ gem 'rmagick', '2.13.1'
 # gem 'omniauth-twitter', '0.0.12'
 # gem 'omniauth-linkedin', '0.0.6'
 # gem 'tire', '0.4.2'
-# gem 'configatron', '2.9.1'
 
 group :production, :staging do
   gem 'pg', '0.14.0'
