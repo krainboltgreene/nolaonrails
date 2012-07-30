@@ -52,17 +52,21 @@ ActiveRecord::Schema.define(:version => 20120704211054) do
     t.integer  "price",            :default => 0
     t.string   "image"
     t.integer  "enrollment_limit", :default => 0
+    t.boolean  "published",        :default => false
+    t.boolean  "finished",         :default => false
     t.integer  "account_id"
     t.integer  "location_id"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   add_index "courses", ["account_id"], :name => "index_courses_on_account_id"
   add_index "courses", ["enrollment_limit"], :name => "index_courses_on_enrollment_limit"
+  add_index "courses", ["finished"], :name => "index_courses_on_finished"
   add_index "courses", ["location_id"], :name => "index_courses_on_location_id"
   add_index "courses", ["name"], :name => "index_courses_on_name"
   add_index "courses", ["price"], :name => "index_courses_on_price"
+  add_index "courses", ["published"], :name => "index_courses_on_published"
 
   create_table "enrollments", :id => false, :force => true do |t|
     t.integer "course_id"
