@@ -12,7 +12,7 @@
 #
 #= require jquery
 #= require jquery_ujs
-#= require twitter/bootstrap
+#= require bootstrap
 #= require prefixfree
 #= require underscore
 #= require_tree .
