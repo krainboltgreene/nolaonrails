@@ -50,6 +50,10 @@ group :development do
   # gem 'debugger'
 end
 
+group :test do
+  gem "capybara", "1.1.2"
+end
+
 group :assets do
   gem 'sass-rails', '3.2.5'
   gem 'coffee-rails', '3.2.2'
