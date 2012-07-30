@@ -58,7 +58,7 @@ class AccountsController < ApplicationController
   end
 
   def dashboard
-
+    redirect_to courses_path
   end
 
   private
