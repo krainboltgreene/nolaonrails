@@ -1,4 +1,4 @@
-li.course.thumbnail.span3
+li.course.thumbnail.span3 class=#{'open' if course.available?}
   .image
     = link_to course_path(course) do
       = image_tag course.image.thumbnail
