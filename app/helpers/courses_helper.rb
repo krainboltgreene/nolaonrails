@@ -1,5 +1,4 @@
 module CoursesHelper
-
   def no_courses_text
     if params[:account_id]
       """
@@ -16,19 +15,15 @@ module CoursesHelper
   def body_course_form_input_options
     {
       as: :text,
-      input_html: {
-        class: "span6",
-        rows: 8
-      }
+      input_html: { rows: 8 }
     }
   end
 
   def price_course_form_input_options
-    {
-      placeholder: "500",
-      input_html: {
-        class: "span2"
-      }
-    }
+    { placeholder: "500" }
+  end
+
+  def course_availability_class
+    'open' if course.available?
   end
 end
