@@ -32,6 +32,6 @@ class CourseDecorator < Draper::Base
   end
 
   def available?
-    published? && not finished?
+    published? && !finished?
   end
 end

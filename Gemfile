@@ -38,20 +38,19 @@ group :development, :test do
   gem 'factory_girl_rails', '3.5.0'
   gem 'forgery', '0.5.0'
   gem 'dotenv', '0.1.0'
+  gem 'capybara', '1.1.2'
+  gem 'database_cleaner', '0.8.0'
+  gem 'rspec-rails', '2.11.0'
+  gem 'spork', '0.9.2'
 end
 
 group :development do
   gem 'foreman', '0.53.0'
   gem 'pry-rails', '0.1.6'
-  gem 'rspec-rails', '2.11.0'
   gem 'email_spy', '1.6.0'
   gem 'quiet_assets', '1.0.1'
   gem 'vendorer', '0.1.11'
   # gem 'debugger'
-end
-
-group :test do
-  gem "capybara", "1.1.2"
 end
 
 group :assets do
