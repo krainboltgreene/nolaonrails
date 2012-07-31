@@ -21,13 +21,14 @@ class Account < ActiveRecord::Base
   attr_accessor :terms
   attr_accessor :card_number, :card_cvc, :card_expiration
 
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.email = auth.info.email
-      user.save!
+  def self.create_with_omniauth(response)
+    criteria = where provider: response[:provider], uid: response[:uid].to_s
+    criteria.first_or_initialize do |account|
+      account.provider = response.provider
+      account.uid = response.uid
+      account.name = response.info.name
+      account.email = response.info.email
+      account.save!
     end
   end
 end
