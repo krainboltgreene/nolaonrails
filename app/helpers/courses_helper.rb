@@ -23,7 +23,7 @@ module CoursesHelper
     { placeholder: "500" }
   end
 
-  def course_availability_class
+  def course_availability_class(course)
     'open' if course.available?
   end
 end
