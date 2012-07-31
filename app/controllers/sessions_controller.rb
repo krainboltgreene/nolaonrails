@@ -7,20 +7,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if env["omniauth.auth"]
-      auto_login Account.from_omniauth env["omniauth.auth"]
-    end
-    if current_user
-      redirect_to dashboard_account_path(current_user)
-    else
-      flash.now[:error] = "Your password or username was incorrect. Please try again."
-      logger.info "User failed to log in"
-      render :new
-    end
+    auto_login Account.create_with_omniauth omniauth if omniauth
+    redirect_to dashboard_account_path(current_user)
   end
 
   def destroy
     logout
     redirect_to root_url
+  end
+
+  private
+
+  def omniauth
+    env["omniauth.auth"]
   end
 end

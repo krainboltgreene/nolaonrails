@@ -1,24 +1,6 @@
 class AccountsController < ApplicationController
-  skip_before_filter :require_login, only: [:new, :create, :alumni]
-  skip_before_filter :require_card, only: [:new, :create, :update, :card]
-
-  def new
-    @_account = Account.new
-    @account = AccountDecorator.new @_account
-  end
-
-  def create
-    @_account = Account.new params[:account]
-    @account = AccountDecorator.new @_account
-    if @_account.valid?
-      @_account.save
-      auto_login @account
-      redirect_to card_account_path current_user
-    else
-      log_errors
-      render :new
-    end
-  end
+  skip_before_filter :require_login, only: [:alumni]
+  skip_before_filter :require_card, only: [:update, :card]
 
   def update
     respond_to do |format|
