@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def require_footer
     @footer = true
   end
+
+  def not_authenticated
+    redirect_to new_sessions_path, error: "You need to be signed in."
+  end
 end
