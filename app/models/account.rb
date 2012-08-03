@@ -21,7 +21,7 @@ class Account < ActiveRecord::Base
   attr_accessor :terms
   attr_accessor :card_number, :card_cvc, :card_expiration
 
-  def self.create_with_omniauth(response)
+  def self.find_or_build_with_omniauth(response)
     criteria = where provider: response[:provider], uid: response[:uid].to_s
     criteria.first_or_initialize do |account|
       account.provider = response.provider
