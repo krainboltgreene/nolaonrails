@@ -7,8 +7,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auto_login Account.create_with_omniauth omniauth if omniauth
-    redirect_to dashboard_account_path(current_user)
+    account = Account.find_or_build_with_omniauth omniauth if omniauth
+    if account.present? && account.valid?
+      account.save if account.new_record?
+      auto_login account
+      redirect_to dashboard_account_path(current_user)
+    else
+      flash.now[:error] = "You could not be logged in due to an error"
+      render :new
+    end
   end
 
   def destroy
