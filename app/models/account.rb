@@ -28,7 +28,6 @@ class Account < ActiveRecord::Base
       account.uid = response.uid
       account.name = response.info.name
       account.email = response.info.email
-      account.save!
     end
   end
 end
