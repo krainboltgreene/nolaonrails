@@ -15,6 +15,8 @@ class Course < ActiveRecord::Base
   attr_accessible :enrollment_limit
   attr_accessible :location
   attr_accessible :account
+  attr_accessible :longitude
+  attr_accessible :latitude
   attr_accessible :published
   attr_accessible :finished
   attr_accessible :image

@@ -6,6 +6,9 @@ class CreateCourses < ActiveRecord::Migration
       t.integer :price, default: 0
       t.string :image, default: nil
       t.integer :enrollment_limit, default: 0
+      t.string :location
+      t.float :longitude
+      t.float :latitude
       t.boolean :published, default: false
       t.boolean :finished, default: false
       t.belongs_to :account
@@ -16,6 +19,8 @@ class CreateCourses < ActiveRecord::Migration
     add_index :courses, :name
     add_index :courses, :enrollment_limit
     add_index :courses, :price
+    add_index :courses, :longitude
+    add_index :courses, :latitude
     add_index :courses, :published
     add_index :courses, :finished
     add_index :courses, :account_id
