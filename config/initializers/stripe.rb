@@ -1,2 +1,0 @@
-Stripe.api_key = ENV['STRIPE_SECRET']
-STRIPE_PUBLIC_KEY = ENV['STRIPE_KEY']

@@ -1,9 +1,0 @@
-tr
-  th Price
-  td
-    = number_to_currency @course.price
-    '
-    - unless current_account.is_teacher? @course
-      = link_to "Enroll Now", purchase_course_path(@course)
-    - else
-      = link_to "Edit Price", edit_course_path(@course)

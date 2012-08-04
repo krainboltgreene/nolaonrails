@@ -1,8 +1,0 @@
-
-.form-controls
-  = form.input :name, value: current_account.name
-  = form.input :card_number, placeholder: '#### #### #### ####'
-  = form.input :card_cvc, cvc_input_options
-  = form.input :card_expiration, expiration_input_options
-  = form.input :stripe_token, as: :hidden
-  = form.input :path, as: :hidden, input_html: { value: account_url(current_user) }
