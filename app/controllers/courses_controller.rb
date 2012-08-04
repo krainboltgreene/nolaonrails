@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
     @course = CourseDecorator.new @_course
     if @_course.valid?
       @_course.save
-      redirect_to account_courses_path current_user
+      redirect_to edit_course_path @_course
     else
       render :new
     end
@@ -40,7 +40,7 @@ class CoursesController < ApplicationController
     @_course = current_user.courses.find_by_id params[:id]
     @course = CourseDecorator.new @_course
     if @_course.update_attributes params[:course]
-      redirect_to account_courses_path current_user
+      redirect_to edit_course_path @_course
     else
       render :edit
     end
