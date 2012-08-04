@@ -17,8 +17,8 @@ class CreateCourses < ActiveRecord::Migration
       t.timestamps
     end
     add_index :courses, :name
-    add_index :courses, :enrollment_limit
     add_index :courses, :price
+    add_index :courses, :enrollment_limit
     add_index :courses, :longitude
     add_index :courses, :latitude
     add_index :courses, :published

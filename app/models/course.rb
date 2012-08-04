@@ -14,13 +14,14 @@ class Course < ActiveRecord::Base
   attr_accessible :price
   attr_accessible :enrollment_limit
   attr_accessible :location
-  attr_accessible :account
   attr_accessible :longitude
   attr_accessible :latitude
   attr_accessible :published
   attr_accessible :finished
   attr_accessible :image
+  attr_accessible :enrollments
   attr_accessible :klasses
+  attr_accessible :account
   attr_accessible :klasses_attributes
 
   private

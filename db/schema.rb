@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(:version => 20120704211054) do
     t.integer  "price",            :default => 0
     t.string   "image"
     t.integer  "enrollment_limit", :default => 0
+    t.string   "location"
+    t.float    "longitude"
+    t.float    "latitude"
     t.boolean  "published",        :default => false
     t.boolean  "finished",         :default => false
     t.integer  "account_id"
@@ -63,7 +66,9 @@ ActiveRecord::Schema.define(:version => 20120704211054) do
   add_index "courses", ["account_id"], :name => "index_courses_on_account_id"
   add_index "courses", ["enrollment_limit"], :name => "index_courses_on_enrollment_limit"
   add_index "courses", ["finished"], :name => "index_courses_on_finished"
+  add_index "courses", ["latitude"], :name => "index_courses_on_latitude"
   add_index "courses", ["location_id"], :name => "index_courses_on_location_id"
+  add_index "courses", ["longitude"], :name => "index_courses_on_longitude"
   add_index "courses", ["name"], :name => "index_courses_on_name"
   add_index "courses", ["price"], :name => "index_courses_on_price"
   add_index "courses", ["published"], :name => "index_courses_on_published"
@@ -76,19 +81,20 @@ ActiveRecord::Schema.define(:version => 20120704211054) do
   add_index "enrollments", ["account_id"], :name => "index_enrollments_on_account_id"
   add_index "enrollments", ["course_id"], :name => "index_enrollments_on_course_id"
 
-  create_table "meets", :force => true do |t|
-    t.datetime "start_at"
-    t.datetime "end_at"
+  create_table "klasses", :force => true do |t|
     t.string   "name"
     t.text     "body"
+    t.string   "location"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.integer  "course_id"
     t.integer  "location_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "meets", ["course_id"], :name => "index_meets_on_course_id"
-  add_index "meets", ["location_id"], :name => "index_meets_on_location_id"
-  add_index "meets", ["name"], :name => "index_meets_on_name"
+  add_index "klasses", ["course_id"], :name => "index_klasses_on_course_id"
+  add_index "klasses", ["location_id"], :name => "index_klasses_on_location_id"
+  add_index "klasses", ["name"], :name => "index_klasses_on_name"
 
 end
