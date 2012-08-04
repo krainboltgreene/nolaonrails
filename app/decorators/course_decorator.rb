@@ -1,14 +1,13 @@
 class CourseDecorator < Draper::Base
   decorates :course
   decorates_association :account
-  decorates_association :meets
 
   def body
     Rails.cache.read("course[#{id}][body]") || course.body
   end
 
   def start_at_date
-    if meets.any?
+    if klasses.any?
 
     else
       "---"
@@ -16,7 +15,7 @@ class CourseDecorator < Draper::Base
   end
 
   def end_at_date
-    if meets.any?
+    if klasses.any?
 
     else
       "---"

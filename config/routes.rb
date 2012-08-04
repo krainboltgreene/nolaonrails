@@ -11,7 +11,7 @@ NolaOnRails::Application.routes.draw do
   resources :courses do
     get "purchase", on: :member
 
-    resources :meets do
+    resources :klasses do
       resources :videos, only: [:index, :show, :create, :update, :destroy]
       resources :presentations, only: [:index, :show, :create, :update, :destroy]
       resources :samples, only: [:index, :show, :create, :update, :destroy]

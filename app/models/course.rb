@@ -1,7 +1,9 @@
 class Course < ActiveRecord::Base
   has_and_belongs_to_many :enrollments, join_table: "enrollments", class_name: "Account"
-  has_many :meets
+  has_many :klasses
   belongs_to :account
+
+  accepts_nested_attributes_for :klasses
 
   mount_uploader :image, ImageUploader
 
@@ -16,6 +18,8 @@ class Course < ActiveRecord::Base
   attr_accessible :published
   attr_accessible :finished
   attr_accessible :image
+  attr_accessible :klasses
+  attr_accessible :klasses_attributes
 
   private
 
