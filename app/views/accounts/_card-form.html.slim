@@ -1,18 +1,8 @@
-.form-errors
-  = form.error_notification
-  noscript
-    You need JavaScript enabled in order to use this form.
+
 .form-controls
-  .row
-    .span7
-      = form.input :name, value: current_account.name
-      = form.input :card_number, placeholder: '#### #### #### ####'
-      = form.input :card_cvc, cvc_input_options
-      = form.input :card_expiration, expiration_input_options
-      = form.input :stripe_token, as: :hidden
-      = form.input :path, as: :hidden, input_html: { value: account_url(current_user) }
-    .span4
-      h4.alert.alert-info For Your Information
-      p == card_form_text
-.form-actions
-  = form.submit class: "btn btn-primary"
+  = form.input :name, value: current_account.name
+  = form.input :card_number, placeholder: '#### #### #### ####'
+  = form.input :card_cvc, cvc_input_options
+  = form.input :card_expiration, expiration_input_options
+  = form.input :stripe_token, as: :hidden
+  = form.input :path, as: :hidden, input_html: { value: account_url(current_user) }
