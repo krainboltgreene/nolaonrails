@@ -1,0 +1,6 @@
+ignore '.gitignore'
+ignore '.rvmrc'
+ignore 'Gemfile'
+ignore 'Gemfile.lock'
+ignore 'Procfile'
+ignore 'config.ru'
