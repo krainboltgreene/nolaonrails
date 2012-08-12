@@ -8,11 +8,10 @@ html
     meta name="keywords" content=view_keywords
     meta name="author" content=view_author
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    link type="text/css" rel="stylesheet" href="normalize.css"
     link type="text/css" rel="stylesheet" href="foundation.css"
     link type="text/css" rel="stylesheet" href="styles.css"
-  body
-    article#main
+  body.courses#show
+    article
       == yield
     script href="modernizer.js"
     script href="prefixfree.js"

@@ -1,78 +1,74 @@
 @import "http://fonts.googleapis.com/css?family=Oleo+Script";
 
-body {
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900);
 
+h1, h2, h3, h4, h5, h6 {
+  color: #CC5C3C;
+  text-transform: capitalize;
 }
 
-// body {
-//
+h1, h2, h3 {
+  font-family: "Source Sans Pro", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  padding-top: 15px;
+  padding-left: 45px;
+}
 
-//   article { background-color: white; margin-top: 45px; }
-//   article { h1, h2, h3, h4, p { padding: 0.5em 1em; } }
-//   #notifications, #errors {
-//     position: relative;
-//     top: 48px;
-//   }
+strong {
+  color: #CC5C3C;
+}
 
-//   background: image_url('redtrolly.jpg') no-repeat center center fixed;
-//   background-size: cover;
-//   &#splash {
-//     article {
-//       background-color: rgba(250,250,250, 0.5);
-//       margin-top: 0px;
-//       h1, h2, h3, p, ul, ol { padding: 0em; }
-//       .page-header { border-bottom: none; }
-//       .title {
-//         text-align: center;
-//         padding: 0em;
-//         &#nola { font-size: 8rem; }
-//         &#on { font-size: 7rem; color: #DA4F49; }
-//         &#rails { font-size: 9rem; font-family: "Oleo Script", serif; letter-spacing: 0.1em; }
-//       }
+body.courses {
+  &#show {
+    article {
+      width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      header {
+        background: #666 url('background.jpg') no-repeat center bottom fixed;
+        background-size: cover;
+        min-height: 275px;
+        padding-bottom: 25px;
 
-//       #schedule {
-//         background-color: white;
-//         border-top: 1px #DA4F49 solid;
-//         border-bottom: 1px #DA4F49 solid;
-//         text-align: center;
-//         .subtitle { vertical-align: middle;}
-//         #times { font-size: 1.5em; line-height: 1.75em; color: #DA4F49; }
-//         #days { font-size: 4em; line-height: 1.5em; }
-//         #dates { font-size: 4.25em; line-height: 1.5em; font-family: "Oleo Script", serif; }
-//       }
+        #name { padding-top: 50px; padding-left: 45px; }
+        #countdown {
+          padding-left: 45px;
+          color: #fff;
+          background: rgba(50, 50, 50, 0.75);
+        }
+      }
+      section {
+        border-top: 1px solid #ccc;
+        ul, p { padding-left: 75px; }
 
-//       #location {
-//         background-color: white;
-//         border-top: 1px #DA4F49 solid;
-//         border-bottom: 1px #DA4F49 solid;
-//         #where { font-size: 3.25em; line-height: 1.5em; text-align: center; }
-//         .subtitle { text-align: center; }
-//         .map { width: 100%; height: 325px; }
-//       }
+        &#where #map {
+          display: block;
+          margin: 0 auto;
+          height: 350px;
+          width: 95%;
+        }
 
-//       #register {
-//         text-align: center;
-//         padding: 1em;
-//       }
+        &#who {
+          #teacher .avatar {
+            float: right;
+            width: 128px;
+            height: 128px;
+            margin-top: 35px;
+          }
+          #students {
+            list-style-type: none;
+            li { display: inline-block; }
+          }
+          .avatar {
+            float: left;
+            width: 96px;
+            height: 96px;
+            border: 2px solid #ccc;
+            margin: 5px;
+          }
+        }
+      }
+    }
+    footer { height: 150px; }
+  }
+}
 
-//       #pitches .pitch {
-//         background: white;
-//         border-radius: 3px;
-//         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-//         header, p { padding: 0px 1em; }
-//       }
-
-//       #signup {
-//         margin-top: 15px;
-//         margin-bottom: 15px;
-//         text-align: center;
-//         input[type=email] {
-//         font-size: 18px;
-//         padding: 9px 14px;
-//         }
-//       }
-//     }
-//   }
-// }

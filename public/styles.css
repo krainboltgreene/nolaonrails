@@ -1,4 +1,56 @@
 @import "http://fonts.googleapis.com/css?family=Oleo+Script";
-body {
-  background: url("background.jpg") no-repeat center center fixed;
-  background-size: cover; }
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900);
+h1, h2, h3, h4, h5, h6 {
+  color: #CC5C3C;
+  text-transform: capitalize; }
+
+h1, h2, h3 {
+  font-family: "Source Sans Pro", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  padding-top: 15px;
+  padding-left: 45px; }
+
+strong {
+  color: #CC5C3C; }
+
+body.courses#show article {
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto; }
+  body.courses#show article header {
+    background: #666666 url("background.jpg") no-repeat center bottom fixed;
+    background-size: cover;
+    min-height: 275px;
+    padding-bottom: 25px; }
+    body.courses#show article header #name {
+      padding-top: 50px;
+      padding-left: 45px; }
+    body.courses#show article header #countdown {
+      padding-left: 45px;
+      color: #fff;
+      background: rgba(50, 50, 50, 0.75); }
+  body.courses#show article section {
+    border-top: 1px solid #ccc; }
+    body.courses#show article section ul, body.courses#show article section p {
+      padding-left: 75px; }
+    body.courses#show article section#where #map {
+      display: block;
+      margin: 0 auto;
+      height: 350px;
+      width: 95%; }
+    body.courses#show article section#who #teacher .avatar {
+      float: right;
+      width: 128px;
+      height: 128px;
+      margin-top: 35px; }
+    body.courses#show article section#who #students {
+      list-style-type: none; }
+      body.courses#show article section#who #students li {
+        display: inline-block; }
+    body.courses#show article section#who .avatar {
+      float: left;
+      width: 96px;
+      height: 96px;
+      border: 2px solid #ccc;
+      margin: 5px; }
+body.courses#show footer {
+  height: 150px; }
