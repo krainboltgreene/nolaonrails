@@ -8,13 +8,16 @@ class SessionsController < ApplicationController
 
   def create
     account = Account.find_or_build_with_omniauth omniauth if omniauth
-    if account.present? && account.valid?
-      account.save if account.new_record?
-      auto_login account
-      redirect_to dashboard_account_path(current_user)
-    else
-      flash.now[:error] = "You could not be logged in due to an error"
-      render :new
+    case
+      when account.present? && account.valid?
+        account.save if account.new_record?
+        auto_login account
+        redirect_to dashboard_account_path current_user
+      when account.new_record?
+        redirec_to new_account_path account: account.attributes
+      else
+        flash.now[:error] = "You could not be logged in due to an error"
+        render :new
     end
   end
 

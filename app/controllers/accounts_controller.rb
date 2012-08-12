@@ -2,6 +2,15 @@ class AccountsController < ApplicationController
   skip_before_filter :require_login, only: [:alumni]
   skip_before_filter :require_card, only: [:update, :card]
 
+  def new
+    @_account = Account.new
+  end
+
+  def create
+    @_account = Account.new params[:account]
+
+  end
+
   def update
     respond_to do |format|
       if params[:account][:stripe_token]
